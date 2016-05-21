@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="10" height="10" tilewidth="32" tileheight="32" nextobjectid="7">
+ <tileset firstgid="1" name="Foreground" tilewidth="256" tileheight="32" tilecount="6" columns="0">
+  <tile id="0">
+   <image width="32" height="32" source="../player/ship.png"/>
+  </tile>
+  <tile id="1">
+   <image width="32" height="32" source="../tiles/collision_tile.png"/>
+  </tile>
+  <tile id="2">
+   <image width="32" height="32" source="../tiles/bounce_tile.png"/>
+  </tile>
+  <tile id="3">
+   <image width="256" height="32" source="../objects/coin_sheet.png"/>
+  </tile>
+  <tile id="4">
+   <image width="32" height="32" source="../tiles/metal_tile.png"/>
+  </tile>
+  <tile id="5">
+   <image width="192" height="32" source="../enemies/seeker/seeker.png"/>
+  </tile>
+ </tileset>
+ <layer name="Foreground" width="10" height="10">
+  <data encoding="base64" compression="zlib">
+   eJxjYmBgYCIRwwCxYtjEyVHHjKYOXR6XedjMJkcdMe5FN4uNgDp08wBtDAB+
+  </data>
+ </layer>
+</map>

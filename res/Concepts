@@ -1,0 +1,18 @@
+Game Concepts:
+
+RPG style exploration game using a ship that travels over and through planet surfaces and caves, 
+searching for the lost relic, fighting hordes of alien enemies along the way.
+
+-Non-linear style game play with multiple worlds
+-Interact with NPC's in world which can provide missions of various difficulties
+-Hostile and non-hostile worlds
+-Ship will fly continuously and special exploration pod can go through caves,
+however it has less armor and weapon damage, and can run out of fuel, unless
+you can find fuel pods
+
+Player Concepts:
+
+-Level up to attain special skills (accuracy, hull reinforcement)
+-Upgrade weapons and ship with materials refined from destroyed enemies,
+however, they can only be built via hangar on a non-hostile world
+
