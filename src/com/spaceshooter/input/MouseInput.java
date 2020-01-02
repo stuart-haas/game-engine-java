@@ -4,17 +4,17 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 import com.spaceshooter.core.Camera;
-import com.spaceshooter.core.Handler;
+import com.spaceshooter.core.EntityManager;
 
 public class MouseInput extends MouseAdapter{
 
 	public static int MOUSEX, MOUSEY;
 	
-	protected Handler handler;
+	protected EntityManager handler;
 
 	Camera camera;
 
-	public MouseInput(Handler handler, Camera camera){
+	public MouseInput(EntityManager handler, Camera camera){
 		this.handler = handler;
 		this.camera = camera;
 	}

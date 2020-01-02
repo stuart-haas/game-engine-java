@@ -1,4 +1,4 @@
-package com.spaceshooter.objects;
+package com.spaceshooter.entity;
 
 import java.awt.Color;
 import java.awt.Graphics;
@@ -8,7 +8,7 @@ import com.spaceshooter.sprite.Animation;
 import com.spaceshooter.utils.Assets;
 import com.spaceshooter.utils.ID;
 
-public class Bullet extends GameObject{
+public class Bullet extends Entity{
 
 	Animation animation;
 	
@@ -18,7 +18,7 @@ public class Bullet extends GameObject{
 		texture.loadImage(Assets.BULLET, width, height);
 		animation = new Animation(8, true, texture.imageArray);
 	}
-	public void tick() {
+	public void update() {
 		animation.runAnimation();
 		
 		position = position.add(velocity);

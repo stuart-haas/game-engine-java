@@ -18,6 +18,18 @@ public class Vector2D{
 	public void setY(double y) {
 		this.y = fix(y, 2);
 	}
+	public void addX(double x) {
+		this.x += fix(x, 2);
+	}
+	public void addY(double y) {
+		this.y += fix(y, 2);
+	}
+	public void subX(double x) {
+		this.x -= fix(x, 2);
+	}
+	public void subY(double y) {
+		this.y -= fix(y, 2);
+	}
 	public Vector2D(double x, double y){
 		update(x, y);
 	}

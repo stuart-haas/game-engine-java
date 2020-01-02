@@ -2,15 +2,15 @@ package com.spaceshooter.behaviors;
 
 import java.util.List;
 
+import com.spaceshooter.entity.Entity;
 import com.spaceshooter.math.LineOfSight;
 import com.spaceshooter.math.Vector2D;
-import com.spaceshooter.objects.GameObject;
 import com.spaceshooter.utils.ID;
 
 public class Arrive extends ABehavior{
 
-	public Arrive(List<GameObject> group, ID id1, GameObject target,
-			double seekThreshold, double arriveThreshold, List<GameObject> obstacles, ID id2){
+	public Arrive(List<Entity> group, ID id1, Entity target,
+			double seekThreshold, double arriveThreshold, List<Entity> obstacles, ID id2){
 		super(group, id1, target, ID.Arrive);
 
 		this.obstacles = obstacles;
@@ -20,7 +20,7 @@ public class Arrive extends ABehavior{
 		this.arriveThreshold = arriveThreshold;
 	}
 	@Override
-	public Vector2D calculate(GameObject object) {
+	public Vector2D calculate(Entity object) {
 
 		Vector2D finalVel;
 		Vector2D force;
@@ -49,7 +49,7 @@ public class Arrive extends ABehavior{
 				}
 			}
 		}
-		else for (GameObject tempObject : group){
+		else for (Entity tempObject : group){
 
 			if (tempObject.getId1() == id1){
 				finalVel = tempObject.position.subtract(object.position);
@@ -75,7 +75,7 @@ public class Arrive extends ABehavior{
 		}
 		return new Vector2D();
 	}
-	public static Vector2D calculate(GameObject object, Vector2D target,
+	public static Vector2D calculate(Entity object, Vector2D target,
 			double arriveThreshold) {
 		Vector2D finalVel = target.subtract(object.position);
 		finalVel.normalize();

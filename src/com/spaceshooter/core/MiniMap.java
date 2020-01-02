@@ -6,14 +6,14 @@ import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 import java.util.List;
 
-import com.spaceshooter.objects.GameObject;
+import com.spaceshooter.entity.Entity;
 import com.spaceshooter.utils.ID;
 
 public class MiniMap{
 
 	Map map;
 	BufferedImage level;
-	Handler handler;
+	EntityManager handler;
 	int x, y;
 	int width, height;
 	double scaleX, scaleY;
@@ -21,7 +21,7 @@ public class MiniMap{
 	int pixel, red, green, blue = 0;
 
 	public MiniMap(int x, int y, int colWidth, int colHeight, Map map,
-			Handler handler){
+			EntityManager handler){
 		this.map = map;
 		this.level = map.getLevel();
 		this.handler = handler;
@@ -43,21 +43,21 @@ public class MiniMap{
 		g2d.setPaint(Color.black);
 		g2d.fillRect(x, y, width + 4, height + 4);
 
-		drawTile(g, handler.objects, ID.Player, Color.blue);
-		drawTile(g, handler.objects, ID.Enemy, Color.red);
-		drawTile(g, handler.pickups, ID.Pickup, Color.yellow);
-		drawTile(g, handler.objects, ID.InteriorTile, Color.white);
-		drawTile(g, handler.collisionObjects, ID.CollisionTile, Color.gray);
-		drawTile(g, handler.missiles, ID.Missile, Color.cyan);
-		drawTile(g, handler.objects, ID.Blackhole, Color.pink);
-		drawTile(g, handler.objects, ID.Bullet, Color.cyan);
+		drawTile(g, handler.entities, ID.Player, Color.blue);
+		drawTile(g, handler.entities, ID.Enemy, Color.red);
+		drawTile(g, handler.entities, ID.Pickup, Color.yellow);
+		drawTile(g, handler.entities, ID.InteriorTile, Color.white);
+		drawTile(g, handler.entities, ID.CollisionTile, Color.gray);
+		drawTile(g, handler.entities, ID.Missile, Color.cyan);
+		drawTile(g, handler.entities, ID.Blackhole, Color.pink);
+		drawTile(g, handler.entities, ID.Bullet, Color.cyan);
 	}
-	private void drawTile(Graphics g, List<GameObject> list, ID id,
+	private void drawTile(Graphics g, List<Entity> list, ID id,
 			Color color) {
 
 		for (int i = 0; i < list.size(); i++){
 
-			GameObject tempObject = list.get(i);
+			Entity tempObject = list.get(i);
 			if (tempObject.getId1() == id || tempObject.getId2() == id){
 
 				double px = (-width + tempObject.position.getX()) * scaleX;

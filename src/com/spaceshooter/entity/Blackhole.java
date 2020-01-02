@@ -1,4 +1,4 @@
-package com.spaceshooter.objects;
+package com.spaceshooter.entity;
 
 import java.awt.Color;
 import java.awt.Graphics;
@@ -6,15 +6,15 @@ import java.awt.Graphics2D;
 import java.util.List;
 
 import com.spaceshooter.core.Game;
-import com.spaceshooter.core.Handler;
+import com.spaceshooter.core.EntityManager;
 import com.spaceshooter.math.Vector2D;
 import com.spaceshooter.sprite.Animation;
 import com.spaceshooter.utils.Assets;
 import com.spaceshooter.utils.ID;
 
-public class Blackhole extends GameObject{
+public class Blackhole extends Entity{
 
-	Handler handler = Game.getHandler();
+	EntityManager handler = EntityManager.getInstance();
 	Animation tile;
 
 	public Blackhole(int x, int y, int width, int height, ID id1, ID id2){
@@ -24,11 +24,11 @@ public class Blackhole extends GameObject{
 		texture.loadImage(Assets.BLACKHOLE, 32, 32);
 		tile = new Animation(1, true, texture.imageArray);
 	}
-	public void tick() {
+	public void update() {
 
-		List<GameObject> missiles = handler.getNearByObjects(handler.missiles, ID.Missile, this.position, 250);
+		List<Entity> missiles = handler.getNearbyEntities(ID.Missile, this.position, 250);
 
-		for (GameObject tempObject : missiles){
+		for (Entity tempObject : missiles){
 			Vector2D force = tempObject.position.subtract(this.position);
 			tempObject.velocity = tempObject.velocity.subtract(force.normalize().multiply(.3));
 		}

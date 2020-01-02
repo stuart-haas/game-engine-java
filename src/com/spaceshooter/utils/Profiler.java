@@ -6,9 +6,9 @@ import java.awt.Graphics;
 
 import com.spaceshooter.core.Camera;
 import com.spaceshooter.core.Game;
-import com.spaceshooter.core.Handler;
+import com.spaceshooter.entity.Entity;
+import com.spaceshooter.core.EntityManager;
 import com.spaceshooter.input.MouseInput;
-import com.spaceshooter.objects.GameObject;
 
 public class Profiler{
 
@@ -16,16 +16,16 @@ public class Profiler{
 	public static double TARGET_ANGLE;
 	public static double TARGET_DISTANCE;
 	
-	Handler handler;
-	GameObject object;
+	EntityManager handler;
+	Entity object;
 	int x, y;
 
-	public Profiler(int x, int y, ID id, Handler handler){
+	public Profiler(int x, int y, ID id, EntityManager handler){
 		this.handler = handler;
 		this.x = x;
 		this.y = y;
 		
-		object = handler.getObjectById(handler.objects, id);
+		object = handler.getEntityById(id);
 	}
 	public void render(Graphics g) {
 

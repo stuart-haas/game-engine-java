@@ -6,14 +6,14 @@ import java.awt.geom.Line2D;
 import java.util.List;
 import java.util.ListIterator;
 
-import com.spaceshooter.objects.GameObject;
+import com.spaceshooter.entity.Entity;
 import com.spaceshooter.utils.ID;
 import com.spaceshooter.utils.Profiler;
 
 public class LineOfSight{
 
-	public static boolean calculate(GameObject target, GameObject object,
-			List<GameObject> obstacles, ID id) {
+	public static boolean calculate(Entity target, Entity object,
+			List<Entity> obstacles, ID id) {
 
 		if (obstacles == null || id == null) return false;
 
@@ -45,9 +45,9 @@ public class LineOfSight{
 			, object.position.getY(), point.getX()
 			, point.getY());
 
-			ListIterator<GameObject> obstaclesIterator = obstacles.listIterator();
+			ListIterator<Entity> obstaclesIterator = obstacles.listIterator();
 			while (obstaclesIterator.hasNext()){
-				GameObject obstacle = obstaclesIterator.next();
+				Entity obstacle = obstaclesIterator.next();
 				if (obstacle.getId2() == id || obstacle.getId1() == id){
 					if (obstacle.getRectBounds().intersectsLine(line)){
 						visible = false;
@@ -61,13 +61,13 @@ public class LineOfSight{
 		}
 		return visible;
 	}
-	public static void render(Graphics g, int drawDistance, GameObject target,
-			List<GameObject> objects, ID id1, List<GameObject> obstacles,
+	public static void render(Graphics g, int drawDistance, Entity target,
+			List<Entity> objects, ID id1, List<Entity> obstacles,
 			ID id2) {
 
-		ListIterator<GameObject> objectsIterator = objects.listIterator();
+		ListIterator<Entity> objectsIterator = objects.listIterator();
 		while (objectsIterator.hasNext()){
-			GameObject object = objectsIterator.next();
+			Entity object = objectsIterator.next();
 			if (object.getId1() == id1 || object.getId2() == id1){
 
 				Vector2D objectVector = new Vector2D(object.position.getX()
@@ -100,9 +100,9 @@ public class LineOfSight{
 			, object.position.getY(), point.getX()
 			, point.getY());
 
-						ListIterator<GameObject> obstaclesIterator = obstacles.listIterator();
+						ListIterator<Entity> obstaclesIterator = obstacles.listIterator();
 						while (obstaclesIterator.hasNext()){
-							GameObject obstacle = obstaclesIterator.next();
+							Entity obstacle = obstaclesIterator.next();
 							if (obstacle.getId2() == id2
 									|| obstacle.getId1() == id2){
 								if (obstacle.getRectBounds().intersectsLine(line)){

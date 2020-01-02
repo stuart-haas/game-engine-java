@@ -24,8 +24,7 @@ public class Game extends Canvas implements Runnable{
 	public static boolean DISPLAY_STATS = false;
 	public static int FPS = 0;
 	public static String GAME_TITLE = "Space Shooter!";
-	public static int WINDOW_WIDTH = 800,
-			WINDOW_HEIGHT = WINDOW_WIDTH / 12 * 9;
+	public static int WINDOW_WIDTH = 800, WINDOW_HEIGHT = WINDOW_WIDTH / 12 * 9;
 	private static final long serialVersionUID = 4378882451804347022L;
 
 	public STATE state = STATE.Running;
@@ -34,20 +33,12 @@ public class Game extends Canvas implements Runnable{
 		Paused(), Running();
 	}
 
-	public static Handler getHandler() {
-
-		return handler;
-	}
-	public static Map getMap() {
-
-		return map;
-	}
 	public static double clamp(double var, double min, double max) {
-
 		if (var >= max) return var = max;
 		else if (var <= min) return var = min;
 		else return var;
 	}
+	
 	public static void main(String[] args) {
 		new Window(WINDOW_WIDTH, WINDOW_HEIGHT, GAME_TITLE, new Game());
 	}
@@ -56,38 +47,34 @@ public class Game extends Canvas implements Runnable{
 	Button button2;
 	Button button3;
 	Camera camera;
-	static Handler handler;
-	static Map map;
-	Graphics g;
+	EntityManager handler;
+	Map map;
 	MiniMap mapView;
 	Profiler profile;
-	boolean running = false;
 	Thread thread;
 	BufferStrategy bs;
+	Graphics g;
+	boolean running = false;
+	int fps = 60;
+	long interval = 1000 / fps;
+	long currentTime = 0;
+	long lastTime = System.nanoTime();
+	long delta = 0;
 
-	public Game(){
-
-	}
+	public Game() {}
+	
 	public void run() {
-
 		init();
 		this.requestFocus();
-		long lastTime = System.nanoTime();
-		double amountOfTicks = 60.0;
-		double ns = 1000000000 / amountOfTicks;
-		double delta = 0;
+		currentTime = System.nanoTime();
+		delta = (currentTime - lastTime) / interval;
 		long timer = System.currentTimeMillis();
 		int frames = 0;
-		while (running){
-			long now = System.nanoTime();
-			delta += (now - lastTime) / ns;
-			lastTime = now;
-			while (delta >= 1){
-				tick();
-				delta--;
-			}
-			if (running) render();
-
+		while (delta > interval && running){
+			
+			update();
+			render();
+			
 			frames++;
 
 			if (System.currentTimeMillis() - timer > 1000){
@@ -95,9 +82,11 @@ public class Game extends Canvas implements Runnable{
 				FPS = frames;
 				frames = 0;
 			}
+			
+			lastTime = currentTime - (delta % interval);
 		}
-		stop();
 	}
+	
 	public synchronized void start() {
 
 		if (running) return;
@@ -106,6 +95,7 @@ public class Game extends Canvas implements Runnable{
 		thread.start();
 		running = true;
 	}
+	
 	public synchronized void stop() {
 
 		try{
@@ -116,24 +106,30 @@ public class Game extends Canvas implements Runnable{
 			e.printStackTrace();
 		}
 	}
+	
 	private void init() {
+		
+		this.addKeyListener(KeyInput.getInstance());
+		this.addMouseListener(new MouseInput(handler, camera));
 
 		CANVAS_WIDTH = getWidth();
 		CANVAS_HEIGHT = getHeight();
 
-		handler = new Handler();
-		camera = new Camera(0, 0, 0.05f);
+		handler = EntityManager.getInstance();
+		camera = Camera.getInstance(0, 0, 0.05f);
 
-		map = new Map(handler);
+		map = Map.getInstance();
 		map.loadMapFromFile("/levels/TileMap.csv", 40, 40);
-		//map.loadMapFromImage(Assets.LEVEL_THREE);
 
 		mapView = new MiniMap(0, 0, 3, 3, map, handler);
 		profile = new Profiler(650, 0, ID.Player, handler);
-
-		this.addKeyListener(new KeyInput(handler, this, map));
-		this.addMouseListener(new MouseInput(handler, camera));
 	}
+	
+	private void update() {
+		handler.update();
+		camera.update(handler.getEntityById(ID.Player));
+	}
+	
 	private void render() {
 
 		bs = this.getBufferStrategy();
@@ -153,15 +149,10 @@ public class Game extends Canvas implements Runnable{
 
 		g2d.translate(camera.position.getX(), camera.position.getY());
 
-		mapView.render(g);
+		//mapView.render(g);
 	    profile.render(g);
 
 		g.dispose();
 		bs.show();
-	}
-	private void tick() {
-
-		handler.tick();
-		camera.tick(handler.getObjectById(handler.objects, ID.Player));
 	}
 }

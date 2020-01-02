@@ -2,15 +2,15 @@ package com.spaceshooter.behaviors;
 
 import java.util.List;
 
+import com.spaceshooter.entity.Entity;
 import com.spaceshooter.math.LineOfSight;
 import com.spaceshooter.math.Vector2D;
-import com.spaceshooter.objects.GameObject;
 import com.spaceshooter.utils.ID;
 
 public class Flee extends ABehavior{
 
-	public Flee(List<GameObject> group, ID id1, GameObject target,
-			double fleeThreshold, List<GameObject> obstacles, ID id2){
+	public Flee(List<Entity> group, ID id1, Entity target,
+			double fleeThreshold, List<Entity> obstacles, ID id2){
 		super(group, id1, target, ID.Flee);
 		this.fleeThreshold = fleeThreshold;
 		this.obstacles = obstacles;
@@ -18,7 +18,7 @@ public class Flee extends ABehavior{
 	}
 
 	@Override
-	public Vector2D calculate(GameObject object) {
+	public Vector2D calculate(Entity object) {
 
 		Vector2D distance;
 		if (group == null){
@@ -35,7 +35,7 @@ public class Flee extends ABehavior{
 			}
 		}
 		else{
-			for (GameObject tempObject : group){
+			for (Entity tempObject : group){
 				if (tempObject.getId1() == id1 || tempObject.getId2() == id1){
 					distance = tempObject.position.subtract(object.position);
 					if (distance.getDist() < fleeThreshold){
@@ -54,7 +54,7 @@ public class Flee extends ABehavior{
 		return new Vector2D();
 
 	}
-	public static Vector2D calculate(GameObject object,
+	public static Vector2D calculate(Entity object,
 			Vector2D predictedTarget, double fleeThreshold) {
 
 		Vector2D finalVel = object.position.subtract(predictedTarget);
@@ -67,7 +67,7 @@ public class Flee extends ABehavior{
 		}
 		return new Vector2D();
 	}
-	public static Vector2D calculate(GameObject object,
+	public static Vector2D calculate(Entity object,
 			Vector2D predictedTarget) {
 
 		Vector2D finalVel = object.position.subtract(predictedTarget);

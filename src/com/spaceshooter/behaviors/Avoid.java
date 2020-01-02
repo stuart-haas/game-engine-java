@@ -2,13 +2,13 @@ package com.spaceshooter.behaviors;
 
 import java.util.List;
 
+import com.spaceshooter.entity.Entity;
 import com.spaceshooter.math.Vector2D;
-import com.spaceshooter.objects.GameObject;
 import com.spaceshooter.utils.ID;
 
 public class Avoid extends ABehavior{
 
-	public Avoid(List<GameObject> group, ID id1, double avoidDist,
+	public Avoid(List<Entity> group, ID id1, double avoidDist,
 			double avoidBuffer){
 		super(group, id1, null, ID.Avoid);
 		this.avoidDist = avoidDist;
@@ -16,9 +16,9 @@ public class Avoid extends ABehavior{
 	}
 
 	@Override
-	public Vector2D calculate(GameObject object) {
+	public Vector2D calculate(Entity object) {
 
-		for (GameObject tempObject : group){
+		for (Entity tempObject : group){
 			if (tempObject.getId1() == id1){
 
 				Vector2D heading = object.velocity.clone().normalize();

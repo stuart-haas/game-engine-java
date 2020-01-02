@@ -1,4 +1,4 @@
-package com.spaceshooter.objects;
+package com.spaceshooter.entity;
 
 import java.awt.Color;
 import java.awt.Graphics;
@@ -9,7 +9,7 @@ import com.spaceshooter.sprite.Animation;
 import com.spaceshooter.utils.Assets;
 import com.spaceshooter.utils.ID;
 
-public class Pickup extends GameObject{
+public class Pickup extends Entity{
 	
 	Animation animation;
 
@@ -17,11 +17,11 @@ public class Pickup extends GameObject{
 		super(x, y, width, height, id1, id2);
 
 		texture.loadImage(Assets.COIN_SPIN, width, height);
-		animation = new Animation(2, true, texture.imageArray);
+		animation = new Animation(6, true, texture.imageArray);
 	}
 		
 	@Override
-	public void tick() {
+	public void update() {
 		animation.runAnimation();
 	}
 

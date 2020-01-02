@@ -7,7 +7,7 @@ import java.awt.Graphics2D;
 import java.awt.event.MouseEvent;
 
 import com.spaceshooter.core.Game;
-import com.spaceshooter.core.Handler;
+import com.spaceshooter.core.EntityManager;
 import com.spaceshooter.input.MouseInput;
 import com.spaceshooter.utils.ID;
 
@@ -18,7 +18,7 @@ public class Button extends MouseInput{
 	ID id;
 
 	public Button(String text, int fontSize, int x, int y, int width,
-			int height, ID id, Handler handler){
+			int height, ID id, EntityManager handler){
 		super(handler, null);
 
 		this.text = text;

@@ -3,9 +3,9 @@ package com.spaceshooter.gui;
 import java.awt.Color;
 import java.awt.Graphics;
 
-import com.spaceshooter.objects.GameObject;
+import com.spaceshooter.entity.Entity;
 
-public class Marker extends GameObject{
+public class Marker extends Entity{
 
 	Color color;
 

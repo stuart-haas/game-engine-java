@@ -13,16 +13,28 @@ import com.spaceshooter.utils.Colors;
 import com.spaceshooter.utils.ID;
 
 public class Map{
+	
+	static Map instance;
+	
+	public static Map getInstance() {
+		if(instance == null) {
+			instance = new Map();
+			return instance;
+		}
+		return instance;
+		
+	}
 
 	ArrayList<Vector2D> paths;
 	BufferedImage level;
 	ImageLoader loader;
-	Handler handler;
+	EntityManager handler;
 	int[][] map;
 	
-	public Map(Handler handler){
-		this.handler = handler;
+	public Map(){
+		this.handler = EntityManager.getInstance();
 	}
+	
 	public void loadMapFromImage(String path) {
 		paths = new ArrayList<Vector2D>();
 		loader = new ImageLoader();
@@ -63,17 +75,17 @@ public class Map{
 		for(int x = 0; x < map.length; x ++){
 			for(int y = 0; y < map[x].length; y ++){
 				if(map[y][x] == 0)
-					handler.addObject(handler.objects, ObjectFactory.getPlayer(x * 32, y * 32, 32, 32, ID.Player, null));
+					handler.addEntity(handler.entities, ObjectFactory.getPlayer(x * 32, y * 32, 32, 32, ID.Player, null));
 				if(map[y][x] == 1)
-					handler.addObject(handler.collisionObjects, ObjectFactory.getWallTile(x * 32, y * 32, 32, 32, ID.WallTile, ID.CollisionTile));
+					handler.addEntity(handler.entities, ObjectFactory.getWallTile(x * 32, y * 32, 32, 32, ID.WallTile, ID.CollisionTile));
 				if(map[y][x] == 2)
-					handler.addObject(handler.collisionObjects, ObjectFactory.getRoundTile(x * 32, y * 32, 32, 32, ID.BounceTile, ID.CollisionTile));
+					handler.addEntity(handler.entities, ObjectFactory.getRoundTile(x * 32, y * 32, 32, 32, ID.BounceTile, ID.CollisionTile));
 				if(map[y][x] == 3)
-					handler.addObject(handler.pickups, ObjectFactory.getPickup(x * 32, y * 32, 32, 32, ID.Coin, ID.Pickup));
+					handler.addEntity(handler.entities, ObjectFactory.getPickup(x * 32, y * 32, 32, 32, ID.Coin, ID.Pickup));
 				if(map[y][x] == 4)
-					handler.addObject(handler.backgroundObjects, ObjectFactory.getTile(x * 32, y * 32, 32, 32, ID.InteriorTile, ID.Tile));
+					handler.addEntity(handler.entities, ObjectFactory.getTile(x * 32, y * 32, 32, 32, ID.InteriorTile, ID.Tile));
 				if(map[y][x] == 5)
-					handler.addObject(handler.objects, ObjectFactory.getSeeker(x * 32, y * 32, 32, 32, ID.Seeker, ID.Enemy));
+					handler.addEntity(handler.entities, ObjectFactory.getSeeker(x * 32, y * 32, 32, 32, ID.Seeker, ID.Enemy));
 			}
 		}
 	}
@@ -96,26 +108,26 @@ public class Map{
 				Color color = new Color(red, green, blue);
 
 				if (color.equals(Colors.Player)){
-					handler.addObject(handler.objects, ObjectFactory.getPlayer(x * 32, y * 32, 32, 32, ID.Player, null));
+					handler.addEntity(handler.entities, ObjectFactory.getPlayer(x * 32, y * 32, 32, 32, ID.Player, null));
 				}
 				if (red == 0 && green == 255 && blue == 0)
-					handler.addObject(handler.objects, ObjectFactory.getSeeker(x * 32, y * 32, 32, 32, ID.Seeker, ID.Enemy));
+					handler.addEntity(handler.entities, ObjectFactory.getSeeker(x * 32, y * 32, 32, 32, ID.Seeker, ID.Enemy));
 				if (red == 255 && green == 0 && blue == 0)
-					handler.addObject(handler.objects, ObjectFactory.getDrone(x * 32, y * 32, 32, 32, ID.Drone, ID.Enemy));
+					handler.addEntity(handler.entities, ObjectFactory.getDrone(x * 32, y * 32, 32, 32, ID.Drone, ID.Enemy));
 				if (red == 0 && green == 255 && blue == 255)
-					handler.addObject(handler.objects, ObjectFactory.getTurret(x * 32, y * 32, 32, 32, ID.Turret, ID.Enemy));
+					handler.addEntity(handler.entities, ObjectFactory.getTurret(x * 32, y * 32, 32, 32, ID.Turret, ID.Enemy));
 				if (red == 255 && green == 150 && blue == 255)
-					handler.addObject(handler.objects, ObjectFactory.getBlackHole(x * 32, y * 32, 32, 32, ID.Blackhole, ID.Anomaly));
+					handler.addEntity(handler.entities, ObjectFactory.getBlackHole(x * 32, y * 32, 32, 32, ID.Blackhole, ID.Anomaly));
 				if (red == 255 && green == 255 && blue == 255)
-					handler.addObject(handler.objects, ObjectFactory.getTile(x * 32, y * 32, 32, 32, ID.InteriorTile, ID.Tile));
+					handler.addEntity(handler.entities, ObjectFactory.getTile(x * 32, y * 32, 32, 32, ID.InteriorTile, ID.Tile));
 				if (red == 150 && green == 255 && blue == 150)
-					handler.addObject(handler.collisionObjects, ObjectFactory.getWallTile(x * 32, y * 32, 32, 32, ID.HiddenWallTile, ID.CollisionTile));
+					handler.addEntity(handler.entities, ObjectFactory.getWallTile(x * 32, y * 32, 32, 32, ID.HiddenWallTile, ID.CollisionTile));
 				if (red == 130 && green == 130 && blue == 130)
-					handler.addObject(handler.collisionObjects, ObjectFactory.getWallTile(x * 32, y * 32, 32, 32, ID.WallTile, ID.CollisionTile));
+					handler.addEntity(handler.entities, ObjectFactory.getWallTile(x * 32, y * 32, 32, 32, ID.WallTile, ID.CollisionTile));
 				if (red == 150 && green == 0 && blue == 255)
-					handler.addObject(handler.collisionObjects, ObjectFactory.getRoundTile(x * 32, y * 32, 32, 32, ID.BounceTile, ID.CollisionTile));
+					handler.addEntity(handler.entities, ObjectFactory.getRoundTile(x * 32, y * 32, 32, 32, ID.BounceTile, ID.CollisionTile));
 				if (red == 255 && green == 255 && blue == 0)
-					handler.addObject(handler.pickups, ObjectFactory.getPickup(x * 32, y * 32, 32, 32, ID.Coin, ID.Pickup));
+					handler.addEntity(handler.entities, ObjectFactory.getPickup(x * 32, y * 32, 32, 32, ID.Coin, ID.Pickup));
 				if (red == 255 && green == 150 && blue == 0)
 					paths.add(new Vector2D(x * 32, y * 32));
 				if (red == 255 && green == 100 && blue == 0)

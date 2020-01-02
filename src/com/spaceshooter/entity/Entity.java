@@ -1,4 +1,4 @@
-package com.spaceshooter.objects;
+package com.spaceshooter.entity;
 
 import java.awt.Color;
 import java.awt.Graphics;
@@ -11,14 +11,14 @@ import java.util.Random;
 
 import com.spaceshooter.behaviors.ABehavior;
 import com.spaceshooter.core.Game;
-import com.spaceshooter.core.Handler;
+import com.spaceshooter.core.EntityManager;
 import com.spaceshooter.math.Vector2D;
 import com.spaceshooter.sprite.Texture;
 import com.spaceshooter.utils.ID;
 
-public abstract class GameObject{
+public abstract class Entity{
 
-	protected Handler handler = Game.getHandler();
+	protected EntityManager handler = EntityManager.getInstance();
 	public double rotation;
 	public double angle;
 	protected int width;
@@ -31,7 +31,7 @@ public abstract class GameObject{
 	protected DecimalFormat df = new DecimalFormat("#0.00");
 	protected Texture texture = Texture.getInstance();
 
-	public List<GameObject> nearbyTargets;
+	public List<Entity> nearbyTargets;
 	public Vector2D position = new Vector2D();
 	public Vector2D velocity = new Vector2D();
 	public Vector2D steeringForce = new Vector2D();
@@ -50,7 +50,7 @@ public abstract class GameObject{
 	public double lastRotation;
 	public double tempRotation;
 
-	public GameObject(int x, int y, int width, int height, ID id1, ID id2){
+	public Entity(int x, int y, int width, int height, ID id1, ID id2){
 
 		position.update(x, y);
 		this.width = width;
@@ -62,7 +62,7 @@ public abstract class GameObject{
 	}
 	public void removeBehavior(ID id) {
 	}
-	public void tick() {
+	public void update() {
 	}
 	public void render(Graphics g) {
 	}

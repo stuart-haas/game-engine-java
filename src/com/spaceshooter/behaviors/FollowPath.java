@@ -2,8 +2,8 @@ package com.spaceshooter.behaviors;
 
 import java.util.ArrayList;
 
+import com.spaceshooter.entity.Entity;
 import com.spaceshooter.math.Vector2D;
-import com.spaceshooter.objects.GameObject;
 import com.spaceshooter.utils.ID;
 
 public class FollowPath extends ABehavior{
@@ -20,7 +20,7 @@ public class FollowPath extends ABehavior{
 	}
 
 	@Override
-	public Vector2D calculate(GameObject object) {
+	public Vector2D calculate(Entity object) {
 
 		Vector2D force = new Vector2D();
 		Vector2D wayPoint = paths.get(pathIndex);

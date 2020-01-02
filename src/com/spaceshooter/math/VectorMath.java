@@ -1,6 +1,6 @@
 package com.spaceshooter.math;
 
-import com.spaceshooter.objects.GameObject;
+import com.spaceshooter.entity.Entity;
 
 public class VectorMath{
 	
@@ -61,7 +61,7 @@ public class VectorMath{
 		
 		return new Vector2D(bx, by);
 	}
-	public static void bounceOnPlane(GameObject a, Vector2D plane, double bounce, double friction){
+	public static void bounceOnPlane(Entity a, Vector2D plane, double bounce, double friction){
 		
 		Vector2D a1 = new Vector2D(a.position.getX(), a.position.getY());
 		Vector2D a2 = new Vector2D(a.position.getX() + a.velocity.getX(), a.position.getY() + a.velocity.getY());

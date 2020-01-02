@@ -1,4 +1,4 @@
-package com.spaceshooter.objects;
+package com.spaceshooter.entity;
 
 import java.awt.Color;
 import java.awt.Graphics;
@@ -23,13 +23,13 @@ public class Missile extends MovingObject{
 		animation = new Animation(5, true, texture.imageArray);
 		animation.goToFrame(0);
 	}
-	public void tick() {
+	public void update() {
 		
 		life --;
 		if(life <= 0)
 			expired = true;
 
-		super.tick();
+		super.update();
 
 		rotation = Math.toDegrees(velocity.getAngle());	
 	}

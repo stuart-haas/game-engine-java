@@ -1,4 +1,4 @@
-package com.spaceshooter.objects;
+package com.spaceshooter.entity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -7,7 +7,7 @@ import com.spaceshooter.behaviors.ABehavior;
 import com.spaceshooter.math.Vector2D;
 import com.spaceshooter.utils.ID;
 
-public abstract class MovingObject extends GameObject{
+public abstract class MovingObject extends Entity{
 
 	private List<ABehavior> behaviors = new ArrayList<ABehavior>();
 	
@@ -36,7 +36,7 @@ public abstract class MovingObject extends GameObject{
 	public List<ABehavior> getBehaviorList(){
 		return behaviors;
 	}
-	public void tick() {
+	public void update() {
 
 		for (int i = 0; i < behaviors.size(); i++){
 			steeringForce = steeringForce.add(behaviors.get(i).calculate(this)).divide(behaviors.size());

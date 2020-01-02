@@ -6,12 +6,12 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.ListIterator;
 
-import com.spaceshooter.objects.GameObject;
+import com.spaceshooter.entity.Entity;
 import com.spaceshooter.utils.ID;
 
 public class Emitter2D{
 
-	List<GameObject> particles = new ArrayList<GameObject>();
+	List<Entity> particles = new ArrayList<Entity>();
 	
 	private ID id;
 
@@ -30,10 +30,10 @@ public class Emitter2D{
 	}
 	public void tick() {
 
-		ListIterator<GameObject> particleIterator = particles.listIterator();
+		ListIterator<Entity> particleIterator = particles.listIterator();
 		while (particleIterator.hasNext()){
-			GameObject p = particleIterator.next();
-			p.tick();
+			Entity p = particleIterator.next();
+			p.update();
 			if (p.expired){
 				particleIterator.remove();
 			}
@@ -41,7 +41,7 @@ public class Emitter2D{
 	}
 	public void render(Graphics g) {
 
-		for (GameObject p : particles){
+		for (Entity p : particles){
 			p.render(g);
 		}
 	}

@@ -2,16 +2,16 @@ package com.spaceshooter.core;
 
 import java.awt.image.BufferedImage;
 
+import com.spaceshooter.entity.Entity;
 import com.spaceshooter.math.Vector2D;
 import com.spaceshooter.math.VectorMath;
-import com.spaceshooter.objects.GameObject;
 
 public class Collision{
 
 	static String collisionSide = "No collision";
 	static boolean colliding = false;
 
-	public static boolean rectangle(GameObject r1, GameObject r2,
+	public static boolean rectangle(Entity r1, Entity r2,
 			double bounceForce, double friction) {
 
 		Vector2D rv1 = new Vector2D(r1.position.getX(), r1.position.getY());
@@ -80,7 +80,7 @@ public class Collision{
 		}
 		return colliding;
 	}
-	public static boolean ellipse(GameObject a, GameObject b, double bounceForce) {
+	public static boolean ellipse(Entity a, Entity b, double bounceForce) {
 		Vector2D diff = a.position.subtract(b.position);
 
 		double totalRadii = (a.getWidth() * .5) + (b.getWidth() * .5);

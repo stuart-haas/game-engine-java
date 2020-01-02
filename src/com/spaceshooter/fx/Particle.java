@@ -7,10 +7,10 @@ import java.awt.Graphics2D;
 import java.awt.RenderingHints;
 import java.util.Random;
 
+import com.spaceshooter.entity.Entity;
 import com.spaceshooter.math.Vector2D;
-import com.spaceshooter.objects.GameObject;
 
-public class Particle extends GameObject{
+public class Particle extends Entity{
 
 	double size, maxSize, growth, direction, life, lifeRate;
 	float alpha;
@@ -44,7 +44,7 @@ public class Particle extends GameObject{
 			return r.nextDouble() * 5 + 5;
 		return angle;
 	}
-	public void tick() {
+	public void update() {
 
 		if (alpha > life) alpha -= (life - lifeRate);
 		else expired = true;

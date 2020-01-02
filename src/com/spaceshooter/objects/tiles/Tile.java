@@ -2,12 +2,12 @@ package com.spaceshooter.objects.tiles;
 
 import java.awt.Graphics;
 
-import com.spaceshooter.objects.GameObject;
+import com.spaceshooter.entity.Entity;
 import com.spaceshooter.sprite.Animation;
 import com.spaceshooter.utils.Assets;
 import com.spaceshooter.utils.ID;
 
-public class Tile extends GameObject{
+public class Tile extends Entity{
 	
 	Animation tile;
 

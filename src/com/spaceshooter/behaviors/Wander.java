@@ -1,7 +1,7 @@
 package com.spaceshooter.behaviors;
 
+import com.spaceshooter.entity.Entity;
 import com.spaceshooter.math.Vector2D;
-import com.spaceshooter.objects.GameObject;
 import com.spaceshooter.utils.ID;
 
 public class Wander extends ABehavior{
@@ -17,7 +17,7 @@ public class Wander extends ABehavior{
 	}
 
 	@Override
-	public Vector2D calculate(GameObject object) {
+	public Vector2D calculate(Entity object) {
 		Vector2D center = object.velocity.clone().normalize().multiply(wanderDistance);
 		Vector2D offset = new Vector2D();
 		offset.setDist(wanderRadius);
