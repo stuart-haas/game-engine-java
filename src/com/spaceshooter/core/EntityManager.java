@@ -1,18 +1,11 @@
 package com.spaceshooter.core;
 
-import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Iterator;
 import java.util.List;
-import java.util.ListIterator;
-import java.util.Random;
 
 import com.spaceshooter.entity.Entity;
-import com.spaceshooter.fx.Emitter2D;
-import com.spaceshooter.math.LineOfSight;
 import com.spaceshooter.math.Vector2D;
-import com.spaceshooter.utils.Colors;
 import com.spaceshooter.utils.ID;
 
 public class EntityManager{
@@ -40,7 +33,7 @@ public class EntityManager{
 		List<Entity> list = new ArrayList<Entity>();
 
 		for (Entity entity : entities){
-			if (entity.getId1() == id || entity.getId2() == id){
+			if (entity.getId() == id || entity.getId() == id){
 				if (position.distSq(entity.position) < radius * radius){
 					list.add(entity);
 				}
@@ -53,9 +46,9 @@ public class EntityManager{
 	}
 	
 	public Entity getEntityById(ID id) {
-
-		for (Entity entity : entities){
-			if (entity.getId1() == id) return entity;
+		
+		for (Entity entity : entities) {
+			if (entity.getId() == id) return entity;
 		}
 		return null;
 	}
@@ -64,7 +57,7 @@ public class EntityManager{
 		entities.remove(entity);
 	}
 	
-	public void render(Graphics g) {
+	public void render(Graphics2D g) {
 		for (Entity entity: entities) {
 			if(Camera.inViewPort(entity.position)) {
 				entity.render(g);

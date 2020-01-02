@@ -15,7 +15,6 @@ public class KeyInput extends KeyAdapter{
 			return instance;
 		}
 		return instance;
-		
 	}
 
 	Map<Integer, Boolean> pressed;

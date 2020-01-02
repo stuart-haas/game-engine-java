@@ -1,61 +1,22 @@
 package com.spaceshooter.behaviors;
 
-import java.util.List;
-
 import com.spaceshooter.entity.Entity;
-import com.spaceshooter.math.LineOfSight;
 import com.spaceshooter.math.Vector2D;
 import com.spaceshooter.utils.ID;
 
 public class Flee extends ABehavior{
 
-	public Flee(List<Entity> group, ID id1, Entity target,
-			double fleeThreshold, List<Entity> obstacles, ID id2){
-		super(group, id1, target, ID.Flee);
+	public Flee(Entity target, double fleeThreshold){
+		super(target, ID.Flee);
 		this.fleeThreshold = fleeThreshold;
-		this.obstacles = obstacles;
-		this.id2 = id2;
 	}
 
 	@Override
 	public Vector2D calculate(Entity object) {
-
-		Vector2D distance;
-		if (group == null){
-			distance = target.position.subtract(object.position);
-			if (distance.getDist() < fleeThreshold){
-				if (id2 != null){
-					if (LineOfSight.calculate(target, object, obstacles, id2)){ 
-						return Flee.calculate(object, target.position); 
-					}
-				}
-				else{
-					return Flee.calculate(object, target.position);
-				}
-			}
-		}
-		else{
-			for (Entity tempObject : group){
-				if (tempObject.getId1() == id1 || tempObject.getId2() == id1){
-					distance = tempObject.position.subtract(object.position);
-					if (distance.getDist() < fleeThreshold){
-						if (id2 != null){
-							if (LineOfSight.calculate(target, object, obstacles, id2)){ 
-								return Flee.calculate(object, tempObject.position);
-							}
-						}
-						else{
-							return Flee.calculate(object, tempObject.position);
-						}
-					}
-				}
-			}
-		}
-		return new Vector2D();
-
+		return Flee.calculate(object, target.position); 
 	}
-	public static Vector2D calculate(Entity object,
-			Vector2D predictedTarget, double fleeThreshold) {
+	
+	public static Vector2D calculate(Entity object, Vector2D predictedTarget, double fleeThreshold) {
 
 		Vector2D finalVel = object.position.subtract(predictedTarget);
 
@@ -67,8 +28,8 @@ public class Flee extends ABehavior{
 		}
 		return new Vector2D();
 	}
-	public static Vector2D calculate(Entity object,
-			Vector2D predictedTarget) {
+	
+	public static Vector2D calculate(Entity object, Vector2D predictedTarget) {
 
 		Vector2D finalVel = object.position.subtract(predictedTarget);
 		finalVel.normalize();

@@ -8,11 +8,8 @@ import com.spaceshooter.utils.ID;
 
 public class FollowPath extends ABehavior{
 
-	public FollowPath(ArrayList<Vector2D> paths,
-			double pathThreshold, double arriveThreshold,
-			boolean loop){
-		super(null, null, null, ID.FollowPath);
-
+	public FollowPath(ArrayList<Vector2D> paths, double pathThreshold, double arriveThreshold, boolean loop){
+		super(ID.FollowPath);
 		this.paths = paths;
 		this.pathThreshold = pathThreshold;
 		this.arriveThreshold = arriveThreshold;
@@ -21,7 +18,7 @@ public class FollowPath extends ABehavior{
 
 	@Override
 	public Vector2D calculate(Entity object) {
-
+		
 		Vector2D force = new Vector2D();
 		Vector2D wayPoint = paths.get(pathIndex);
 		if (wayPoint == null) return new Vector2D();

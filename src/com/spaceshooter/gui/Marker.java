@@ -10,7 +10,7 @@ public class Marker extends Entity{
 	Color color;
 
 	public Marker(int x, int y, int width, int height, Color color){
-		super(x, y, width, height, null, null);
+		super(x, y, width, height, null);
 		this.color = color;
 	}
 	public void render(Graphics g) {

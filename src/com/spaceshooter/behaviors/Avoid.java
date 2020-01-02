@@ -6,11 +6,10 @@ import com.spaceshooter.entity.Entity;
 import com.spaceshooter.math.Vector2D;
 import com.spaceshooter.utils.ID;
 
-public class Avoid extends ABehavior{
+public class Avoid extends ABehavior {
 
-	public Avoid(List<Entity> group, ID id1, double avoidDist,
-			double avoidBuffer){
-		super(group, id1, null, ID.Avoid);
+	public Avoid(List<Entity> group, ID id, double avoidDist, double avoidBuffer) {
+		super(ID.Avoid);
 		this.avoidDist = avoidDist;
 		this.avoidBuffer = avoidBuffer;
 	}
@@ -18,8 +17,8 @@ public class Avoid extends ABehavior{
 	@Override
 	public Vector2D calculate(Entity object) {
 
-		for (Entity tempObject : group){
-			if (tempObject.getId1() == id1){
+		/*for (Entity tempObject : group){
+			if (tempObject.getId() == id){
 
 				Vector2D heading = object.velocity.clone().normalize();
 
@@ -49,7 +48,7 @@ public class Avoid extends ABehavior{
 					}
 				}
 			}
-		}
+		}*/
 		return new Vector2D();
 	}
 }

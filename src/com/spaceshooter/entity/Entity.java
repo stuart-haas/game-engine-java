@@ -1,7 +1,7 @@
 package com.spaceshooter.entity;
 
 import java.awt.Color;
-import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.awt.Rectangle;
 import java.awt.geom.Ellipse2D;
 import java.awt.image.BufferedImage;
@@ -10,21 +10,17 @@ import java.util.List;
 import java.util.Random;
 
 import com.spaceshooter.behaviors.ABehavior;
-import com.spaceshooter.core.Game;
-import com.spaceshooter.core.EntityManager;
 import com.spaceshooter.math.Vector2D;
 import com.spaceshooter.sprite.Texture;
 import com.spaceshooter.utils.ID;
 
 public abstract class Entity{
 
-	protected EntityManager handler = EntityManager.getInstance();
 	public double rotation;
 	public double angle;
 	protected int width;
 	protected int height;
-	protected ID id1;
-	protected ID id2;
+	protected ID id;
 	public boolean isMoving = false;
 
 	protected Random r = new Random();
@@ -50,37 +46,32 @@ public abstract class Entity{
 	public double lastRotation;
 	public double tempRotation;
 
-	public Entity(int x, int y, int width, int height, ID id1, ID id2){
-
-		position.update(x, y);
+	public Entity(int x, int y, int width, int height, ID id){
+		position.set(x, y);
 		this.width = width;
 		this.height = height;
-		this.id1 = id1;
-		this.id2 = id2;
+		this.id = id;
 	}
-	public void addBehavior(ABehavior behavior) {
-	}
-	public void removeBehavior(ID id) {
-	}
-	public void update() {
-	}
-	public void render(Graphics g) {
-	}
+	
+	public void addBehavior(ABehavior behavior) {}
+	public void removeBehavior(ID id) {}
+	public void update() {}
+	public void render(Graphics2D g) {}
 
 	public Rectangle getRectBounds() {
-
 		return new Rectangle((int) position.getX(), (int) position.getY(), width, height);
 	}
+	
 	public Ellipse2D getEllipseBounds() {
-
 		return new Ellipse2D.Double(position.getX(), position.getY(), width, height);
 	}
-	public void drawBounds(Graphics g) {
-
+	
+	public void drawBounds(Graphics2D g) {
 		g.setColor(Color.cyan);
 		g.drawRect(getRectBounds().x, getRectBounds().y, getRectBounds().width, getRectBounds().height);
 	}
-	public void drawStats(Graphics g) {
+	
+	public void drawStats(Graphics2D g) {
 		g.setColor(Color.cyan);
 		g.drawString("[x: " + position.getX() + " , y: "
 				+ df.format(position.getY()) + "]", (int) position.getX(), (int) position.getY() - 5);
@@ -91,6 +82,7 @@ public abstract class Entity{
 		g.drawString("[angle: "
 				+ df.format(Math.toDegrees(velocity.getAngle())) + "]", (int) position.getX(), (int) position.getY() - 50);
 	}
+	
 	public BufferedImage getImage() {
 		BufferedImage image = null;
 		for (int i = 0; i < texture.imageArray.length; i++){
@@ -99,31 +91,28 @@ public abstract class Entity{
 		return image;
 	}
 
-	public ID getId1() {
+	public ID getId() {
 
-		return id1;
+		return id;
 	}
-	public void setId1(ID id) {
+	
+	public void setId(ID id) {
 
-		this.id1 = id;
+		this.id = id;
 	}
-	public ID getId2() {
 
-		return id2;
-	}
-	public void setId2(ID id) {
-
-		this.id2 = id;
-	}
 	public int getWidth() {
 		return width;
 	}
+	
 	public int getHeight() {
 		return height;
 	}
+	
 	public double getRotation(){
 		return this.rotation;
 	}
+	
 	public double getAngle(){
 		return this.angle;
 	}

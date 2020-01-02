@@ -11,9 +11,9 @@ public class Tile extends Entity{
 	
 	Animation tile;
 
-	public Tile(int x, int y, int width, int height, ID id1, ID id2){
+	public Tile(int x, int y, int width, int height, ID id){
 
-		super(x, y, width, height, id1, id2);
+		super(x, y, width, height, id);
 		
 		texture.loadImage(Assets.METAL_TILE, width, height);
 		tile = new Animation(1, true, texture.imageArray);

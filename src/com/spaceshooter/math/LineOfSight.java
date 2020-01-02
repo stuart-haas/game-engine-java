@@ -1,7 +1,7 @@
 package com.spaceshooter.math;
 
 import java.awt.Color;
-import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.awt.geom.Line2D;
 import java.util.List;
 import java.util.ListIterator;
@@ -48,7 +48,7 @@ public class LineOfSight{
 			ListIterator<Entity> obstaclesIterator = obstacles.listIterator();
 			while (obstaclesIterator.hasNext()){
 				Entity obstacle = obstaclesIterator.next();
-				if (obstacle.getId2() == id || obstacle.getId1() == id){
+				if (obstacle.getId() == id || obstacle.getId() == id){
 					if (obstacle.getRectBounds().intersectsLine(line)){
 						visible = false;
 						break;
@@ -61,14 +61,14 @@ public class LineOfSight{
 		}
 		return visible;
 	}
-	public static void render(Graphics g, int drawDistance, Entity target,
+	public static void render(Graphics2D g, int drawDistance, Entity target,
 			List<Entity> objects, ID id1, List<Entity> obstacles,
 			ID id2) {
 
 		ListIterator<Entity> objectsIterator = objects.listIterator();
 		while (objectsIterator.hasNext()){
 			Entity object = objectsIterator.next();
-			if (object.getId1() == id1 || object.getId2() == id1){
+			if (object.getId() == id1 || object.getId() == id1){
 
 				Vector2D objectVector = new Vector2D(object.position.getX()
 			
@@ -103,8 +103,8 @@ public class LineOfSight{
 						ListIterator<Entity> obstaclesIterator = obstacles.listIterator();
 						while (obstaclesIterator.hasNext()){
 							Entity obstacle = obstaclesIterator.next();
-							if (obstacle.getId2() == id2
-									|| obstacle.getId1() == id2){
+							if (obstacle.getId() == id2
+									|| obstacle.getId() == id2){
 								if (obstacle.getRectBounds().intersectsLine(line)){
 									obstacle.drawBounds(g);
 									object.drawBounds(g);

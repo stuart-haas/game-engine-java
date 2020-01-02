@@ -1,9 +1,9 @@
 package com.spaceshooter.core;
 
-import com.spaceshooter.entity.Entity;
+import com.spaceshooter.math.Math2;
 import com.spaceshooter.math.Vector2D;
 
-public class Camera{
+public class Camera {
 
 	public static int X, Y, OFFSET_X, OFFSET_Y;
 	
@@ -23,19 +23,20 @@ public class Camera{
 	float scrollSpeed;
 
 	public Camera(float x, float y, float scrollSpeed) {
-		position.update(x, y);
+		position.set(x, y);
 		this.scrollSpeed = scrollSpeed;
 	}
-	public void update(Entity target) {
+	
+	public void update(Vector2D target) {
 		
-		OFFSET_X = (int) (target.position.getX() - Camera.X);
-		OFFSET_Y = (int) (target.position.getY() - Camera.Y);
+		OFFSET_X = (int) (target.getX() - Camera.X);
+		OFFSET_Y = (int) (target.getY() - Camera.Y);
 
-		position.setX(position.getX() + ((target.position.getX() - Game.CANVAS_WIDTH / 2) - position.getX()) * scrollSpeed);
-		position.setY(position.getY() + ((target.position.getY() - Game.CANVAS_HEIGHT / 2) - position.getY()) * scrollSpeed);
+		position.setX(position.getX() + ((target.getX() - Game.CANVAS_WIDTH / 2) - position.getX()) * scrollSpeed);
+		position.setY(position.getY() + ((target.getY() - Game.CANVAS_HEIGHT / 2) - position.getY()) * scrollSpeed);
 		
-		position.setX((float) Game.clamp(position.getX(), Game.MAP_X, Game.MAP_WIDTH - Game.WINDOW_WIDTH));
-		position.setY((float) Game.clamp(position.getY(), Game.MAP_Y, ((Game.MAP_HEIGHT - Game.WINDOW_HEIGHT) + (Game.WINDOW_HEIGHT - Game.CANVAS_HEIGHT))));
+		position.setX(Math2.clamp(position.getX(), Game.MAP_X, Game.MAP_WIDTH - Game.WINDOW_WIDTH));
+		position.setY(Math2.clamp(position.getY(), Game.MAP_Y, ((Game.MAP_HEIGHT - Game.WINDOW_HEIGHT) + (Game.WINDOW_HEIGHT - Game.CANVAS_HEIGHT))));
 		
 		X = (int) position.getX();
 		Y = (int) position.getY();

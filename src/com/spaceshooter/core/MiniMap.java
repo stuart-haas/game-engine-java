@@ -1,7 +1,6 @@
 package com.spaceshooter.core;
 
 import java.awt.Color;
-import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 import java.util.List;
@@ -36,12 +35,10 @@ public class MiniMap{
 		scaleX = (double) width / (double) Game.MAP_WIDTH;
 		scaleY = (double) height / (double) Game.MAP_HEIGHT;
 	}
-	public void render(Graphics g) {
+	public void render(Graphics2D g) {
 
-		Graphics2D g2d = (Graphics2D) g;
-
-		g2d.setPaint(Color.black);
-		g2d.fillRect(x, y, width + 4, height + 4);
+		g.setPaint(Color.black);
+		g.fillRect(x, y, width + 4, height + 4);
 
 		drawTile(g, handler.entities, ID.Player, Color.blue);
 		drawTile(g, handler.entities, ID.Enemy, Color.red);
@@ -52,14 +49,12 @@ public class MiniMap{
 		drawTile(g, handler.entities, ID.Blackhole, Color.pink);
 		drawTile(g, handler.entities, ID.Bullet, Color.cyan);
 	}
-	private void drawTile(Graphics g, List<Entity> list, ID id,
-			Color color) {
+	
+	private void drawTile(Graphics2D g, List<Entity> list, ID id, Color color) {
 
 		for (int i = 0; i < list.size(); i++){
-
 			Entity tempObject = list.get(i);
-			if (tempObject.getId1() == id || tempObject.getId2() == id){
-
+			if (tempObject.getId() == id){
 				double px = (-width + tempObject.position.getX()) * scaleX;
 				double py = (-height + tempObject.position.getY()) * scaleY;
 				ObjectFactory.getMarker(((int) px) + x + 18, ((int) py) + y

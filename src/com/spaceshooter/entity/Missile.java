@@ -15,8 +15,8 @@ public class Missile extends MovingObject{
 	Animation animation;
 	Random r = new Random();
 	
-	public Missile(int x, int y, double angle, int width, int height, ID id1, ID id2){
-		super(x, y, width, height, id1, id2);
+	public Missile(int x, int y, double angle, int width, int height, ID id){
+		super(x, y, width, height, id);
 		
 		this.angle = angle;
 		texture.loadImage(Assets.MISSILE, width, height);

@@ -45,8 +45,8 @@ public class Profiler{
 		g.drawString("Camera Y: " + Camera.Y, x + 4, y + 56);
 		g.drawString("Offset X: " + Camera.OFFSET_X, x + 4, y + 70);
 		g.drawString("Offset Y: " + Camera.OFFSET_Y, x + 4, y + 84);
-		g.drawString("Mouse X: " + MouseInput.MOUSEX, x + 4, y + 98);
-		g.drawString("Mouse Y: " + MouseInput.MOUSEY, x + 4, y + 112);
+		g.drawString("Mouse X: " + MouseInput.MOUSE_X, x + 4, y + 98);
+		g.drawString("Mouse Y: " + MouseInput.MOUSE_Y, x + 4, y + 112);
 		g.drawString("Image Width: " + Game.IMAGE_WIDTH, x + 4, y + 126);
 		g.drawString("Image Height: " + Game.IMAGE_HEIGHT, x + 4, y + 140);
 		g.drawString("Map Width: " + Game.MAP_WIDTH, x + 4, y + 154);

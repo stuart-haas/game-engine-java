@@ -17,10 +17,8 @@ public class Button extends MouseInput{
 	int x, y, width, height, fontSize;
 	ID id;
 
-	public Button(String text, int fontSize, int x, int y, int width,
-			int height, ID id, EntityManager handler){
-		super(handler, null);
-
+	public Button(String text, int fontSize, int x, int y, int width, int height, ID id, EntityManager handler) {
+		super();
 		this.text = text;
 		this.x = x;
 		this.y = y;
@@ -29,6 +27,7 @@ public class Button extends MouseInput{
 		this.fontSize = fontSize;
 		this.id = id;
 	}
+	
 	public void mousePressed(MouseEvent e) {
 
 		int mx = e.getX();
@@ -53,9 +52,11 @@ public class Button extends MouseInput{
 			}
 		}
 	}
+	
 	public void mouseRelease(MouseEvent e) {
 
 	}
+	
 	public void render(Graphics g) {
 
 		Font font = new Font("arial", 1, fontSize);
@@ -68,14 +69,15 @@ public class Button extends MouseInput{
 		g.setColor(Color.white);
 		g.drawString(text, x + 5, y + height / 2 + 5);
 	}
+	
 	private boolean mouseOver(int mx, int my, int x, int y, int width,
 			int height) {
 		if (mx > x && mx < x + width){
 			if (my > y && my < y + height){
 				return true;
 			}
-			else return false;
+			return false;
 		}
-		else return false;
+		return false;
 	}
 }

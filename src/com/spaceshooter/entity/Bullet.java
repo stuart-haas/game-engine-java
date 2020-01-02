@@ -12,8 +12,8 @@ public class Bullet extends Entity{
 
 	Animation animation;
 	
-	public Bullet(int x, int y, int width, int height, ID id1, ID id2){
-		super(x, y, width, height, id1, id2);
+	public Bullet(int x, int y, int width, int height, ID id){
+		super(x, y, width, height, id);
 		
 		texture.loadImage(Assets.BULLET, width, height);
 		animation = new Animation(8, true, texture.imageArray);

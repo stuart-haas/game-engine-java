@@ -1,7 +1,7 @@
 package com.spaceshooter.fx;
 
 import java.awt.Color;
-import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ListIterator;
@@ -39,7 +39,7 @@ public class Emitter2D{
 			}
 		}
 	}
-	public void render(Graphics g) {
+	public void render(Graphics2D g) {
 
 		for (Entity p : particles){
 			p.render(g);

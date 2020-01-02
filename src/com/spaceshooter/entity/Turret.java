@@ -2,7 +2,6 @@ package com.spaceshooter.entity;
 
 import java.awt.Graphics;
 
-import com.spaceshooter.core.Game;
 import com.spaceshooter.core.EntityManager;
 import com.spaceshooter.math.LineOfSight;
 import com.spaceshooter.math.Vector2D;
@@ -16,9 +15,8 @@ public class Turret extends MovingObject{
 	EntityManager handler;
 	int fireTimer = 0;
 
-	public Turret(int x, int y, int width, int height, ID id1, ID id2){
-		super(x, y, width, height, id1, id2);
-
+	public Turret(int x, int y, int width, int height, ID id){
+		super(x, y, width, height, id);
 		handler = EntityManager.getInstance();
 		texture.loadImage(Assets.TURRET, width, height);
 		animation = new Animation(1, false, texture.imageArray);
@@ -32,7 +30,7 @@ public class Turret extends MovingObject{
 			if(diff.getDist() < fireRadius){
 				fireTimer ++;
 				if(fireTimer >= fireRate){
-					Entity p = new Bullet((int)position.getX() + 8, (int)position.getY(), 16, 16, ID.Bullet, ID.Projectile);
+					Entity p = new Bullet((int)position.getX() + 8, (int)position.getY(), 16, 16, ID.Bullet);
 					p.velocity.setHeading(diff.getAngle(), projectileSpeed);
 					handler.addEntity(handler.entities, p);
 					fireTimer = 0;

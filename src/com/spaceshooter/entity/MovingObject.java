@@ -11,8 +11,8 @@ public abstract class MovingObject extends Entity{
 
 	private List<ABehavior> behaviors = new ArrayList<ABehavior>();
 	
-	public MovingObject(int x, int y, int width, int height, ID id1, ID id2){
-		super(x, y, width, height, id1, id2);
+	public MovingObject(int x, int y, int width, int height, ID id){
+		super(x, y, width, height, id);
 
 	}
 	public void addBehavior(ABehavior behavior) {
