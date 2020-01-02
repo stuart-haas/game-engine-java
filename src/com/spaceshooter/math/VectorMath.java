@@ -7,26 +7,26 @@ public class VectorMath{
 	public static double DEG_TO_RAD = Math.PI / 180;
 	public static double RAD_TO_DEG = 180 / Math.PI;
 	
-	public static Vector2D project(Vector2D v1, Vector2D v2) {
+	public static Vector2 project(Vector2 v1, Vector2 v2) {
 		double dp = dotProduct(v1, v2);
 
 		double px = dp * v2.nx();
 		double py = dp * v2.ny();
 
-		return new Vector2D(px, py);
+		return new Vector2(px, py);
 	}
-	public static double dotProduct(Vector2D v1, Vector2D v2) {
+	public static double dotProduct(Vector2 v1, Vector2 v2) {
 		return v1.getX() * v2.nx() + v1.getY() * v2.ny();
 	}
-	public static double dotProduct2(Vector2D v1, Vector2D v2){
+	public static double dotProduct2(Vector2 v1, Vector2 v2){
 		
 		return v1.getX() * v2.getX() + v1.getY() * v2.getY();
 	}
-	public static double crossProduct(Vector2D v1, Vector2D v2){
+	public static double crossProduct(Vector2 v1, Vector2 v2){
 		
 		return (v1.getX() * v2.getX()) - (v1.getY() * v2.getY());
 	}
-	public static double perpProduct(Vector2D v1, Vector2D v2){
+	public static double perpProduct(Vector2 v1, Vector2 v2){
 		
 		double perpProduct = 1 / v1.getX() * v2.getY() - v1.getY() * v2.getX();
 		
@@ -39,7 +39,7 @@ public class VectorMath{
 			return 1;
 		}
 	}
-	public static double angleBetween(Vector2D v1, Vector2D v2){
+	public static double angleBetween(Vector2 v1, Vector2 v2){
 		
 		double dp = dotProduct(v1, v2);
 		
@@ -50,25 +50,25 @@ public class VectorMath{
 		return angle;
 		
 	}
-	public static Vector2D bounce(Vector2D v1, Vector2D v2){
+	public static Vector2 bounce(Vector2 v1, Vector2 v2){
 		
-		Vector2D p1 = VectorMath.project(v1, v2);
+		Vector2 p1 = VectorMath.project(v1, v2);
 		
-		Vector2D p2 = VectorMath.project(v1, v2.ln());
+		Vector2 p2 = VectorMath.project(v1, v2.ln());
 		
 		double bx = p1.getX() + (p2.getX() * -1);
 		double by = p1.getY() + (p2.getY() * -1);
 		
-		return new Vector2D(bx, by);
+		return new Vector2(bx, by);
 	}
-	public static void bounceOnPlane(Entity a, Vector2D plane, double bounce, double friction){
+	public static void bounceOnPlane(Entity a, Vector2 plane, double bounce, double friction){
 		
-		Vector2D a1 = new Vector2D(a.position.getX(), a.position.getY());
-		Vector2D a2 = new Vector2D(a.position.getX() + a.velocity.getX(), a.position.getY() + a.velocity.getY());
-		Vector2D v1 = a2.subtract(a1);
+		Vector2 a1 = new Vector2(a.position.getX(), a.position.getY());
+		Vector2 a2 = new Vector2(a.position.getX() + a.velocity.getX(), a.position.getY() + a.velocity.getY());
+		Vector2 v1 = a2.subtract(a1);
 		
-		Vector2D p1 = VectorMath.project(v1, plane);
-		Vector2D p2 = VectorMath.project(v1, plane.ln());
+		Vector2 p1 = VectorMath.project(v1, plane);
+		Vector2 p2 = VectorMath.project(v1, plane.ln());
 		
 		double bx = p2.getX() * -1;
 		double by = p2.getY() * -1;
@@ -79,11 +79,11 @@ public class VectorMath{
 		a.velocity.setX((bx * bounce) + (fx * friction));
 		a.velocity.setY((by * bounce) + (fy * friction));
 	}
-	public static Vector2D gravity(Vector2D vector, double mass1, double mass2){
+	public static Vector2 gravity(Vector2 vector, double mass1, double mass2){
 		
 		double gx = vector.nx() * (mass1 * mass2) / vector.getDist();
 		double gy = vector.ny() * (mass1 * mass2) / vector.getDist();
 		
-		return new Vector2D(gx, gy);
+		return new Vector2(gx, gy);
 	}
 }

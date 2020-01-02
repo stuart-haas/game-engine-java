@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Random;
 
 import com.spaceshooter.behaviors.ABehavior;
-import com.spaceshooter.math.Vector2D;
+import com.spaceshooter.math.Vector2;
 import com.spaceshooter.sprite.Texture;
 import com.spaceshooter.utils.ID;
 
@@ -28,12 +28,12 @@ public abstract class Entity{
 	protected Texture texture = Texture.getInstance();
 
 	public List<Entity> nearbyTargets;
-	public Vector2D position = new Vector2D();
-	public Vector2D velocity = new Vector2D();
-	public Vector2D steeringForce = new Vector2D();
+	public Vector2 position = new Vector2();
+	public Vector2 velocity = new Vector2();
+	public Vector2 steeringForce = new Vector2();
 
 	public int health = 50;
-	public double friction = .95;
+	public double friction = .98;
 	public double maxSpeed = 5;
 	public double minSpeed = 1;
 	public double maxForce = 1;

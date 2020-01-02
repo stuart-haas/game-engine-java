@@ -6,7 +6,7 @@ import com.spaceshooter.sprite.Animation;
 import com.spaceshooter.utils.Assets;
 import com.spaceshooter.utils.ID;
 
-public class Rocket extends MovingObject {
+public class Rocket extends BehaviorEntity {
 	
 	Animation animation;
 

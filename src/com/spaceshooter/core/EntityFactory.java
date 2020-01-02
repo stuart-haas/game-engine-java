@@ -14,13 +14,13 @@ import com.spaceshooter.entity.Rocket;
 import com.spaceshooter.entity.Seeker;
 import com.spaceshooter.entity.Turret;
 import com.spaceshooter.gui.Marker;
-import com.spaceshooter.math.Vector2D;
+import com.spaceshooter.math.Vector2;
 import com.spaceshooter.objects.tiles.RoundTile;
 import com.spaceshooter.objects.tiles.Tile;
 import com.spaceshooter.objects.tiles.WallTile;
 import com.spaceshooter.utils.ID;
 
-public class ObjectFactory {
+public class EntityFactory {
 
 	private static EntityManager handler = EntityManager.getInstance();
 	private static Map map = Map.getInstance();
@@ -34,7 +34,7 @@ public class ObjectFactory {
 		return tempObject;
 	}
 	
-	public static Entity getBullet(int x, int y, int width, int height, Vector2D velocity, ID id) {
+	public static Entity getBullet(int x, int y, int width, int height, Vector2 velocity, ID id) {
 
 		Entity tempObject = new Bullet(x, y, width, height, id);
 		tempObject.velocity = velocity;
@@ -60,9 +60,9 @@ public class ObjectFactory {
 	
 	public static Entity getSeeker(int x, int y, int width, int height, ID id) {
 		Entity entity = new Seeker(x, y, width, height, id);
-		entity.addBehavior(new Arrive(handler.getEntityById(ID.Player), 200, 400));
+		entity.addBehavior(new Arrive(handler.getEntityById(ID.Player), 200));
 		entity.maxSpeed = 2;
-		entity.maxForce = 1;
+		entity.maxForce = .25;
 		return entity;
 	}
 	

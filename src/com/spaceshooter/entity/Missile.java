@@ -10,7 +10,7 @@ import com.spaceshooter.sprite.Animation;
 import com.spaceshooter.utils.Assets;
 import com.spaceshooter.utils.ID;
 
-public class Missile extends MovingObject{
+public class Missile extends BehaviorEntity{
 
 	Animation animation;
 	Random r = new Random();

@@ -7,7 +7,7 @@ import com.spaceshooter.sprite.Animation;
 import com.spaceshooter.utils.Assets;
 import com.spaceshooter.utils.ID;
 
-public class Seeker extends MovingObject {
+public class Seeker extends BehaviorEntity {
 	
 	Animation animation;
 	EntityManager handler;

@@ -57,7 +57,7 @@ public class MiniMap{
 			if (tempObject.getId() == id){
 				double px = (-width + tempObject.position.getX()) * scaleX;
 				double py = (-height + tempObject.position.getY()) * scaleY;
-				ObjectFactory.getMarker(((int) px) + x + 18, ((int) py) + y
+				EntityFactory.getMarker(((int) px) + x + 18, ((int) py) + y
 						+ 18, colWidth, colHeight, color).render(g);
 			}
 		}

@@ -3,7 +3,7 @@ package com.spaceshooter.behaviors;
 import java.util.List;
 
 import com.spaceshooter.entity.Entity;
-import com.spaceshooter.math.Vector2D;
+import com.spaceshooter.math.Vector2;
 import com.spaceshooter.utils.ID;
 
 public class Avoid extends ABehavior {
@@ -15,7 +15,7 @@ public class Avoid extends ABehavior {
 	}
 
 	@Override
-	public Vector2D calculate(Entity object) {
+	public Vector2 calculate(Entity object) {
 
 		/*for (Entity tempObject : group){
 			if (tempObject.getId() == id){
@@ -49,6 +49,6 @@ public class Avoid extends ABehavior {
 				}
 			}
 		}*/
-		return new Vector2D();
+		return new Vector2();
 	}
 }

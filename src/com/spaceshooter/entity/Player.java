@@ -6,6 +6,7 @@ import java.awt.event.KeyEvent;
 import com.spaceshooter.core.Game;
 import com.spaceshooter.input.KeyInput;
 import com.spaceshooter.math.Math2;
+import com.spaceshooter.math.Vector2;
 import com.spaceshooter.sprite.Animation;
 import com.spaceshooter.utils.Assets;
 import com.spaceshooter.utils.ID;
@@ -14,6 +15,7 @@ public class Player extends Entity{
 
 	Animation animation;
 	KeyInput input;
+	Vector2 oldPosition;
 
 	public Player(int x, int y, int width, int height, ID id) {
 		super(x, y, width, height, id);
@@ -24,6 +26,8 @@ public class Player extends Entity{
 	}
 	
 	public void update() {
+		
+		oldPosition = position;
 		
 	    if (input.isKeyPressed(KeyEvent.VK_D)) this.steeringForce.setX(maxForce);
 	    else if (input.isKeyPressed(KeyEvent.VK_A)) this.steeringForce.setX(-maxForce);

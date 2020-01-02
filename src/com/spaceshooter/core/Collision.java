@@ -1,16 +1,16 @@
 package com.spaceshooter.core;
 
 import com.spaceshooter.entity.Entity;
-import com.spaceshooter.math.Vector2D;
+import com.spaceshooter.math.Vector2;
 
 public class Collision{
 
 	public static boolean rectangle(Entity aa, Entity bb) {
 		
 		boolean colliding = false;
-		Vector2D v1 = new Vector2D(aa.position.getX(), aa.position.getY());
-		Vector2D v2 = new Vector2D(bb.position.getX(), bb.position.getY());
-		Vector2D diff = v2.subtract(v1);
+		Vector2 v1 = new Vector2(aa.position.getX(), aa.position.getY());
+		Vector2 v2 = new Vector2(bb.position.getX(), bb.position.getY());
+		Vector2 diff = v2.subtract(v1);
 
 		if (Math.abs(diff.getX()) < aa.getWidth() * 0.5 + bb.getWidth() * 0.5){
 

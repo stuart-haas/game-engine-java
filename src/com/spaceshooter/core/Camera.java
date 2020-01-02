@@ -1,7 +1,7 @@
 package com.spaceshooter.core;
 
 import com.spaceshooter.math.Math2;
-import com.spaceshooter.math.Vector2D;
+import com.spaceshooter.math.Vector2;
 
 public class Camera {
 
@@ -18,7 +18,7 @@ public class Camera {
 		
 	}
 	
-	public Vector2D position = new Vector2D();
+	public Vector2 position = new Vector2();
 	
 	float scrollSpeed;
 
@@ -27,7 +27,7 @@ public class Camera {
 		this.scrollSpeed = scrollSpeed;
 	}
 	
-	public void update(Vector2D target) {
+	public void update(Vector2 target) {
 		
 		OFFSET_X = (int) (target.getX() - Camera.X);
 		OFFSET_Y = (int) (target.getY() - Camera.Y);
@@ -42,7 +42,7 @@ public class Camera {
 		Y = (int) position.getY();
 	}
 	
-	public static boolean inViewPort(Vector2D position) {
+	public static boolean inViewPort(Vector2 position) {
 		if(
 			position.getX() < Camera.OFFSET_X - Game.CANVAS_WIDTH / 2 ||
 			position.getX() > Camera.X + Game.CANVAS_WIDTH ||

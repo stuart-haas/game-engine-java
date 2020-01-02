@@ -6,7 +6,7 @@ import java.awt.Graphics2D;
 import java.util.List;
 
 import com.spaceshooter.core.EntityManager;
-import com.spaceshooter.math.Vector2D;
+import com.spaceshooter.math.Vector2;
 import com.spaceshooter.sprite.Animation;
 import com.spaceshooter.utils.Assets;
 import com.spaceshooter.utils.ID;
@@ -27,7 +27,7 @@ public class Blackhole extends Entity{
 		List<Entity> missiles = handler.getNearbyEntities(ID.Missile, this.position, 250);
 
 		for (Entity tempObject : missiles){
-			Vector2D force = tempObject.position.subtract(this.position);
+			Vector2 force = tempObject.position.subtract(this.position);
 			tempObject.velocity = tempObject.velocity.subtract(force.normalize().multiply(.3));
 		}
 	}

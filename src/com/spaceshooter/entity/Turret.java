@@ -4,12 +4,12 @@ import java.awt.Graphics;
 
 import com.spaceshooter.core.EntityManager;
 import com.spaceshooter.math.LineOfSight;
-import com.spaceshooter.math.Vector2D;
+import com.spaceshooter.math.Vector2;
 import com.spaceshooter.sprite.Animation;
 import com.spaceshooter.utils.Assets;
 import com.spaceshooter.utils.ID;
 
-public class Turret extends MovingObject{
+public class Turret extends BehaviorEntity{
 
 	Animation animation;
 	EntityManager handler;
@@ -26,7 +26,7 @@ public class Turret extends MovingObject{
 
 		Entity player = handler.getEntityById(ID.Player);
 		if (LineOfSight.calculate(player, this, handler.entities, ID.CollisionTile)){
-			Vector2D diff = player.position.subtract(position);
+			Vector2 diff = player.position.subtract(position);
 			if(diff.getDist() < fireRadius){
 				fireTimer ++;
 				if(fireTimer >= fireRate){

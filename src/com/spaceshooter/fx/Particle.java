@@ -7,7 +7,7 @@ import java.awt.RenderingHints;
 import java.util.Random;
 
 import com.spaceshooter.entity.Entity;
-import com.spaceshooter.math.Vector2D;
+import com.spaceshooter.math.Vector2;
 
 public class Particle extends Entity {
 
@@ -36,7 +36,7 @@ public class Particle extends Entity {
 		this.direction = r.nextDouble() * getSpreadAngle(angle);
 		double vx = Math.cos(direction) * speed;
 		double vy = Math.sin(direction) * speed;
-		velocity = new Vector2D(vx, vy);
+		velocity = new Vector2(vx, vy);
 	}
 	
 	public double getSpreadAngle(double angle) {

@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.spaceshooter.entity.Entity;
-import com.spaceshooter.math.Vector2D;
+import com.spaceshooter.math.Vector2;
 import com.spaceshooter.utils.ID;
 
 public class EntityManager{
@@ -29,7 +29,7 @@ public class EntityManager{
 		list.add(object);
 	}
 	
-	public List<Entity> getNearbyEntities(ID id, Vector2D position, double radius) {
+	public List<Entity> getNearbyEntities(ID id, Vector2 position, double radius) {
 		List<Entity> list = new ArrayList<Entity>();
 
 		for (Entity entity : entities){

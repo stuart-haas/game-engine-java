@@ -1,7 +1,7 @@
 package com.spaceshooter.behaviors;
 
 import com.spaceshooter.entity.Entity;
-import com.spaceshooter.math.Vector2D;
+import com.spaceshooter.math.Vector2;
 import com.spaceshooter.utils.ID;
 
 public class Pursue extends ABehavior {
@@ -12,13 +12,13 @@ public class Pursue extends ABehavior {
 	}
 
 	@Override
-	public Vector2D calculate(Entity source) {
+	public Vector2 calculate(Entity source) {
 		return Pursue.calculate(source, target, seekThreshold);
 	}
 	
-	public static Vector2D calculate(Entity object, Entity target, double seekThreshold) {
-		double lookAheadTime = object.position.dist(target.position) / object.maxSpeed;
-		Vector2D predictedTarget = target.position.add(target.velocity.multiply(lookAheadTime));
-		return Seek.calculate(object, predictedTarget, seekThreshold);
+	public static Vector2 calculate(Entity source, Entity target, double seekThreshold) {
+		double lookAheadTime = source.position.dist(target.position) / source.maxSpeed;
+		Vector2 predictedTarget = target.position.add(target.velocity.multiply(lookAheadTime));
+		return Seek.calculate(source, predictedTarget, seekThreshold);
 	}
 }

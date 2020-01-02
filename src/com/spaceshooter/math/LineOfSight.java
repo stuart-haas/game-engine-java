@@ -19,14 +19,14 @@ public class LineOfSight{
 
 		boolean visible = false;
 
-		Vector2D objectVector = new Vector2D(object.position.getX()
+		Vector2 objectVector = new Vector2(object.position.getX()
 				+ object.getWidth() * 0.5, object.position.getY()
 				+ object.getWidth() * 0.5);
-		Vector2D targetVector = new Vector2D(target.position.getX()
+		Vector2 targetVector = new Vector2(target.position.getX()
 			+ target.getWidth() * 0.5, target.position.getY()
 				+ target.getWidth() * 0.5);
 
-		Vector2D distance = targetVector.subtract(objectVector);
+		Vector2 distance = targetVector.subtract(objectVector);
 
 		int segment = target.getWidth();
 
@@ -37,7 +37,7 @@ public class LineOfSight{
 		while (counter++ != numberOfPoints){
 			int vectorLength = segment * counter;
 
-			Vector2D point = new Vector2D(object.position.getX()
+			Vector2 point = new Vector2(object.position.getX()
 				+ (distance.nx() * vectorLength), object.position.getY()
 					+ (distance.ny() * vectorLength));
 
@@ -70,16 +70,16 @@ public class LineOfSight{
 			Entity object = objectsIterator.next();
 			if (object.getId() == id1 || object.getId() == id1){
 
-				Vector2D objectVector = new Vector2D(object.position.getX()
+				Vector2 objectVector = new Vector2(object.position.getX()
 			
 						+ object.getWidth() * 0.5, object.position.getY()
 						+ object.getWidth() * 0.5);
-				Vector2D targetVector = new Vector2D(target.position.getX()
+				Vector2 targetVector = new Vector2(target.position.getX()
 			
 						+ target.getWidth() * 0.5, target.position.getY()
 						+ target.getWidth() * 0.5);
 
-				Vector2D distance = targetVector.subtract(objectVector);
+				Vector2 distance = targetVector.subtract(objectVector);
 				if (distance.getDist() < drawDistance){
 
 					int segment = target.getWidth();
@@ -91,7 +91,7 @@ public class LineOfSight{
 					while (counter++ != numberOfPoints){
 						int vectorLength = segment * counter;
 
-						Vector2D point = new Vector2D(object.position.getX()
+						Vector2 point = new Vector2(object.position.getX()
 			
 								+ (distance.nx() * vectorLength), object.position.getY()
 								+ (distance.ny() * vectorLength));
