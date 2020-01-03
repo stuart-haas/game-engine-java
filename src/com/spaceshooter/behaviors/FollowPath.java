@@ -3,12 +3,12 @@ package com.spaceshooter.behaviors;
 import java.util.ArrayList;
 
 import com.spaceshooter.entity.Entity;
-import com.spaceshooter.math.Vector2;
+import com.spaceshooter.math.Vector;
 import com.spaceshooter.utils.ID;
 
 public class FollowPath extends ABehavior{
 
-	public FollowPath(ArrayList<Vector2> paths, double pathThreshold, double arriveThreshold, boolean loop){
+	public FollowPath(ArrayList<Vector> paths, double pathThreshold, double arriveThreshold, boolean loop){
 		super(ID.FollowPath);
 		this.paths = paths;
 		this.pathThreshold = pathThreshold;
@@ -17,11 +17,11 @@ public class FollowPath extends ABehavior{
 	}
 
 	@Override
-	public Vector2 calculate(Entity object) {
+	public Vector calculate(Entity object) {
 		
-		Vector2 force = new Vector2();
-		Vector2 wayPoint = paths.get(pathIndex);
-		if (wayPoint == null) return new Vector2();
+		Vector force = new Vector();
+		Vector wayPoint = paths.get(pathIndex);
+		if (wayPoint == null) return new Vector();
 		if (object.position.dist(wayPoint) < pathThreshold){
 			if (pathIndex >= paths.size() - 1){
 				if (loop){

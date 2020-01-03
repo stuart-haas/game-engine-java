@@ -2,7 +2,7 @@ package com.spaceshooter.core;
 
 import java.awt.Color;
 
-import com.spaceshooter.behaviors.Arrive;
+import com.spaceshooter.behaviors.Seek;
 import com.spaceshooter.entity.Bullet;
 import com.spaceshooter.entity.Entity;
 import com.spaceshooter.entity.Missile;
@@ -11,7 +11,7 @@ import com.spaceshooter.entity.Pickup;
 import com.spaceshooter.entity.Player;
 import com.spaceshooter.entity.Seeker;
 import com.spaceshooter.gui.Marker;
-import com.spaceshooter.math.Vector2;
+import com.spaceshooter.math.Vector;
 import com.spaceshooter.utils.ID;
 
 public class EntityFactory {
@@ -21,13 +21,12 @@ public class EntityFactory {
 	public static Entity getPlayer(int x, int y, int width, int height, ID id) {
 		Entity tempObject = new Player(x, y, width, height, id);
 		tempObject.maxForce = 1;
-		tempObject.maxSpeed = 2;
-		tempObject.friction = .98;
+		tempObject.maxSpeed = 3;
 		tempObject.projectileSpeed = 7;
 		return tempObject;
 	}
 	
-	public static Entity getBullet(int x, int y, int width, int height, Vector2 velocity, ID id) {
+	public static Entity getBullet(int x, int y, int width, int height, Vector velocity, ID id) {
 		Entity tempObject = new Bullet(x, y, width, height, id);
 		tempObject.velocity = velocity;
 		return tempObject;
@@ -44,7 +43,7 @@ public class EntityFactory {
 	
 	public static Entity getSeeker(int x, int y, int width, int height, ID id) {
 		Entity entity = new Seeker(x, y, width, height, id);
-		entity.addBehavior(new Arrive(entityManager.getEntityById(ID.Player), 200));
+		entity.addBehavior(new Seek(entityManager.getEntityById(ID.Player), 200));
 		entity.maxSpeed = 2;
 		entity.maxForce = .25;
 		return entity;

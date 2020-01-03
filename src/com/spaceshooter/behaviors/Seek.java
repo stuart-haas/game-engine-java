@@ -1,7 +1,7 @@
 package com.spaceshooter.behaviors;
 
 import com.spaceshooter.entity.Entity;
-import com.spaceshooter.math.Vector2;
+import com.spaceshooter.math.Vector;
 import com.spaceshooter.utils.ID;
 
 public class Seek extends ABehavior {
@@ -12,28 +12,28 @@ public class Seek extends ABehavior {
 	}
 	
 	@Override
-	public Vector2 calculate(Entity source) {
+	public Vector calculate(Entity source) {
 		return Seek.calculate(source, target.position);
 	}
 	
-	public static Vector2 calculate(Entity source, Vector2 target, double seekThreshold) {
+	public static Vector calculate(Entity source, Vector target, double seekThreshold) {
 		
-		Vector2 finalVel = target.subtract(source.position);
+		Vector finalVel = target.subtract(source.position);
 		if (finalVel.getDist() < seekThreshold){
 			finalVel.normalize();
 			finalVel = finalVel.multiply(source.maxSpeed);
-			Vector2 force = finalVel.subtract(source.velocity);
+			Vector force = finalVel.subtract(source.velocity);
 			return force;
 		}
-		return new Vector2();
+		return new Vector();
 	}
 	
-	public static Vector2 calculate(Entity object, Vector2 target) {
+	public static Vector calculate(Entity object, Vector target) {
 		
-		Vector2 finalVel = target.subtract(object.position);
+		Vector finalVel = target.subtract(object.position);
 		finalVel.normalize();
 		finalVel = finalVel.multiply(object.maxSpeed);
-		Vector2 force = finalVel.subtract(object.velocity);
+		Vector force = finalVel.subtract(object.velocity);
 		return force;
 	}
 }

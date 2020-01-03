@@ -2,22 +2,31 @@ package com.spaceshooter.sprite;
 
 import java.awt.image.BufferedImage;
 
-public class Texture{
+public class Texture {
+	
+	static Texture instance;
+	
+	public static Texture getInstance() {
+		if(instance == null) {
+			instance = new Texture();
+			return instance;
+		}
+		return instance;
+	}
 
-	SpriteSheet spriteSheet;
-	BufferedImage image = null;
+	BufferedImage image;
 	int width;
 	int height;
 	int columns;
 	int rows;
 	int length;
+	
+	public SpriteSheet spriteSheet;
+	public BufferedImage[][] imageArray;
 
-	public BufferedImage[] imageArray;
-
-	public Texture(){
-
-	}
-	public void loadImage(String path, int width, int height, int columns, int rows){
+	public Texture() {}
+	
+	public void loadImage(String path, int width, int height, int columns, int rows) {
 		
 		this.width = width;
 		this.height = height;
@@ -26,15 +35,14 @@ public class Texture{
 		
 		ImageLoader loader = new ImageLoader();
 		image = loader.loadImage(path);
-		
-		length = columns + rows;
 
-		imageArray = new BufferedImage[length - 1];	             
+		imageArray = new BufferedImage[columns][rows];	
 		spriteSheet = new SpriteSheet(image);
 
-		getTextures();
+		getTextures(width, height);
 	}
-	public void loadImage(String path, int width, int height){
+	
+	public void loadImage(String path, int width, int height) {
 		
 		this.width = width;
 		this.height = height;
@@ -44,22 +52,23 @@ public class Texture{
 
 		columns = image.getWidth() / width;
 		rows = image.getHeight() / height;
-		length = columns + rows;
 
-		imageArray = new BufferedImage[length - 1];	             
+		imageArray = new BufferedImage[columns][rows];
 		spriteSheet = new SpriteSheet(image);
 
-		getTextures();
+		getTextures(width, height);
 	}
-	private void getTextures() {
-
-		for (int x = 0; x < columns; x ++){
-			for(int y = 0; y < rows; y ++){
-				imageArray[x + y] = spriteSheet.grabImage(x + 1, y + 1, width, height);
+	
+	private void getTextures(int width, int height) {
+		
+		for(int x = 0; x < imageArray.length; x ++) {
+			for(int y = 0; y < imageArray[x].length; y ++) {
+				imageArray[x][y] = spriteSheet.getTile(x + 1, y + 1, width, height);
 			}
 		}
 	}
-	public static Texture getInstance() {
-		return new Texture();
+	
+	public BufferedImage getTileById(int id) {
+		return imageArray[id % columns][id / rows];
 	}
 }

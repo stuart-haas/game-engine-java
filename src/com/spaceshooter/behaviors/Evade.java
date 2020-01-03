@@ -1,7 +1,7 @@
 package com.spaceshooter.behaviors;
 
 import com.spaceshooter.entity.Entity;
-import com.spaceshooter.math.Vector2;
+import com.spaceshooter.math.Vector;
 import com.spaceshooter.utils.ID;
 
 public class Evade extends ABehavior{
@@ -13,13 +13,13 @@ public class Evade extends ABehavior{
 	}
 
 	@Override
-	public Vector2 calculate(Entity object) {
+	public Vector calculate(Entity object) {
 		return Evade.calculate(object, target, evadeSpeed, fleeThreshold);
 	}
 	
-	public static Vector2 calculate(Entity object, Entity target, double evadeSpeed, double fleeThreshold) {
+	public static Vector calculate(Entity object, Entity target, double evadeSpeed, double fleeThreshold) {
 		double lookAheadTime = object.position.dist(target.position) / evadeSpeed;
-		Vector2 predictedTarget = target.position.add(target.velocity.multiply(lookAheadTime));
+		Vector predictedTarget = target.position.add(target.velocity.multiply(lookAheadTime));
 		return Flee.calculate(object, predictedTarget, fleeThreshold);
 	}
 }

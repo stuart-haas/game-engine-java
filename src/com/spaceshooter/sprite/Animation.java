@@ -14,19 +14,19 @@ public class Animation{
 
 	boolean loop;
 
-	BufferedImage[] images;
+	BufferedImage[][] images;
 	BufferedImage currentImage;
 
-	public Animation(int speed, boolean loop, BufferedImage[] args){
+	public Animation(int speed, boolean loop, BufferedImage[][] args){
 		this.speed = speed;
 		this.loop = loop;
-		images = new BufferedImage[args.length];
+		images = new BufferedImage[args.length][0];
 		for (int i = 0; i < args.length; i++){
 			images[i] = args[i];
 		}
 		frames = args.length;
 		
-		currentImage = images[0];
+		currentImage = images[0][0];
 	}
 	public void runAnimation() {
 		index++;
@@ -49,13 +49,13 @@ public class Animation{
 		g2d.dispose();
 	}
 	public void goToFrame(int index) {
-		currentImage = images[index];
+		currentImage = images[index][0];
 	}
 	private void nextFrame() {
 
 		for (int i = 0; i < frames; i++){
 			if (count == i){
-				currentImage = images[i];
+				currentImage = images[i][0];
 			}
 		}
 		count++;

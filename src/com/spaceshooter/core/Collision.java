@@ -3,7 +3,7 @@ package com.spaceshooter.core;
 import java.util.ArrayList;
 
 import com.spaceshooter.entity.Entity;
-import com.spaceshooter.math.Vector2;
+import com.spaceshooter.math.Vector;
 import com.spaceshooter.utils.ID;
 
 public class Collision {
@@ -14,7 +14,7 @@ public class Collision {
 	
 	static Map map = Map.getInstance();
 	
-	public static boolean detect(Entity source, int distance, boolean debug, EventCallback callback) {
+	public static void detect(Entity source, int distance, boolean debug, EventCallback callback) {
 		ArrayList<Entity> neighbors = map.getNeighborsByPoint(source.position, distance);
 		for (Entity entity : neighbors) {
 			if(entity != null && entity.getId() == ID.WallTile) {
@@ -24,15 +24,14 @@ public class Collision {
 				callback.success(source, entity);
 			}
 		}
-		return false;
 	}
 
 	public static boolean resolve(Entity aa, Entity bb) {
 		
 		boolean colliding = false;
-		Vector2 v1 = new Vector2(aa.position.getX(), aa.position.getY());
-		Vector2 v2 = new Vector2(bb.position.getX(), bb.position.getY());
-		Vector2 diff = v2.subtract(v1);
+		Vector v1 = new Vector(aa.position.getX(), aa.position.getY());
+		Vector v2 = new Vector(bb.position.getX(), bb.position.getY());
+		Vector diff = v2.subtract(v1);
 
 		if (Math.abs(diff.getX()) < aa.getWidth() / 2 + bb.getWidth() / 2) {
 

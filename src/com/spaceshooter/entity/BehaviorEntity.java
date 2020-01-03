@@ -9,6 +9,8 @@ import com.spaceshooter.utils.ID;
 public abstract class BehaviorEntity extends Entity{
 
 	private Map<ID, ABehavior> behaviors = new HashMap<ID, ABehavior>();
+	boolean lineOfSight = false;
+	Entity target;
 	
 	public BehaviorEntity(int x, int y, int width, int height, ID id) {
 		super(x, y, width, height, id);
@@ -42,7 +44,6 @@ public abstract class BehaviorEntity extends Entity{
 		
 		velocity = velocity.add(steeringForce);
 		velocity.truncate(maxSpeed);
-
 		position = position.add(velocity);
 	}
 }

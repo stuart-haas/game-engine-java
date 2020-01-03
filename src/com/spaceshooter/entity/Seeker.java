@@ -2,7 +2,9 @@ package com.spaceshooter.entity;
 
 import java.awt.Graphics2D;
 
+import com.spaceshooter.core.Collision;
 import com.spaceshooter.core.EntityManager;
+import com.spaceshooter.math.Vector;
 import com.spaceshooter.sprite.Animation;
 import com.spaceshooter.utils.Assets;
 import com.spaceshooter.utils.ID;
@@ -11,6 +13,7 @@ public class Seeker extends BehaviorEntity {
 	
 	Animation animation;
 	EntityManager handler;
+	Vector lastPosition = new Vector();
 
 	public Seeker(int x, int y, int width, int height, ID id){
 		super(x, y, width, height, id);
@@ -21,7 +24,21 @@ public class Seeker extends BehaviorEntity {
 	}
 	
 	public void update() {
+
+		lastPosition = position.clone();
+		
 		super.update();
+		
+		if(lastPosition.getX() != position.getX() || lastPosition.getY() != position.getY()) {
+			Collision.detect(this, 0, true, new Collision.EventCallback() {
+
+				@Override
+				public void success(Entity source, Entity target) {
+					Collision.resolve(source, target);
+				}
+			});
+		}
+		
 		animation.runAnimation();
 	}
 	 

@@ -3,14 +3,14 @@ package com.spaceshooter.behaviors;
 import java.util.ArrayList;
 
 import com.spaceshooter.entity.Entity;
-import com.spaceshooter.math.Vector2;
+import com.spaceshooter.math.Vector;
 import com.spaceshooter.utils.ID;
 
 public abstract class ABehavior {
 		
 	protected ID id;
-	protected Entity target;
-	protected ArrayList<Vector2> paths;
+	public Entity target;
+	protected ArrayList<Vector> paths;
 	protected boolean loop;
 	protected int pathIndex = 0;
 	protected double evadeSpeed;
@@ -38,5 +38,5 @@ public abstract class ABehavior {
 		return id;
 	}
 	
-	public abstract Vector2 calculate(Entity object);
+	public abstract Vector calculate(Entity object);
 }

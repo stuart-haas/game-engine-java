@@ -1,7 +1,7 @@
 package com.spaceshooter.behaviors;
 
 import com.spaceshooter.entity.Entity;
-import com.spaceshooter.math.Vector2;
+import com.spaceshooter.math.Vector;
 import com.spaceshooter.utils.ID;
 
 public class Arrive extends ABehavior {
@@ -12,14 +12,14 @@ public class Arrive extends ABehavior {
 	}
 	
 	@Override
-	public Vector2 calculate(Entity source) {
+	public Vector calculate(Entity source) {
 		return Arrive.calculate(source, target.position, arriveThreshold);
 	}
 	
-	public static Vector2 calculate(Entity source, Vector2 target, double arriveThreshold) {
+	public static Vector calculate(Entity source, Vector target, double arriveThreshold) {
 		
-		Vector2 force = new Vector2();
-		Vector2 diff = target.subtract(source.position);
+		Vector force = new Vector();
+		Vector diff = target.subtract(source.position);
 		diff.normalize();
 
 		double distance = source.position.dist(target);

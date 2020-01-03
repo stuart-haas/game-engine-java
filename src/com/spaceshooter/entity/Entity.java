@@ -4,13 +4,12 @@ import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
 import java.awt.geom.Ellipse2D;
-import java.awt.image.BufferedImage;
 import java.text.DecimalFormat;
 import java.util.List;
 import java.util.Random;
 
 import com.spaceshooter.behaviors.ABehavior;
-import com.spaceshooter.math.Vector2;
+import com.spaceshooter.math.Vector;
 import com.spaceshooter.sprite.Texture;
 import com.spaceshooter.utils.ID;
 
@@ -31,9 +30,9 @@ public abstract class Entity{
 	protected Texture texture = Texture.getInstance();
 
 	public List<Entity> nearbyTargets;
-	public Vector2 position = new Vector2();
-	public Vector2 velocity = new Vector2();
-	public Vector2 steeringForce = new Vector2();
+	public Vector position = new Vector();
+	public Vector velocity = new Vector();
+	public Vector steeringForce = new Vector();
 
 	public int health = 50;
 	public double friction = .98;
@@ -84,14 +83,6 @@ public abstract class Entity{
 				+ df.format(steeringForce.getY()) + "]", (int) position.getX(), (int) position.getY() - 35);
 		g.drawString("[angle: "
 				+ df.format(Math.toDegrees(velocity.getAngle())) + "]", (int) position.getX(), (int) position.getY() - 50);
-	}
-	
-	public BufferedImage getImage() {
-		BufferedImage image = null;
-		for (int i = 0; i < texture.imageArray.length; i++){
-			image = texture.imageArray[i];
-		}
-		return image;
 	}
 
 	public ID getId() {

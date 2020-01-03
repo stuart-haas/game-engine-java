@@ -6,8 +6,8 @@ import java.awt.event.KeyEvent;
 import com.spaceshooter.core.Collision;
 import com.spaceshooter.core.Game;
 import com.spaceshooter.input.KeyInput;
-import com.spaceshooter.math.Math2;
-import com.spaceshooter.math.Vector2;
+import com.spaceshooter.math.Mathf;
+import com.spaceshooter.math.Vector;
 import com.spaceshooter.sprite.Animation;
 import com.spaceshooter.utils.Assets;
 import com.spaceshooter.utils.ID;
@@ -16,7 +16,7 @@ public class Player extends Entity{
 
 	Animation animation;
 	KeyInput input;
-	Vector2 lastPosition = new Vector2();
+	Vector lastPosition = new Vector();
 
 	public Player(int x, int y, int width, int height, ID id) {
 		super(x, y, width, height, id);
@@ -30,8 +30,7 @@ public class Player extends Entity{
 		
 		lastPosition = position.clone();
 		
-		steeringForce.setX(0);
-		steeringForce.setY(0);
+		steeringForce.zero();
 		
 	    if (input.isKeyPressed(KeyEvent.VK_D)) steeringForce.setX(maxForce);
 	    if (input.isKeyPressed(KeyEvent.VK_A)) steeringForce.setX(-maxForce);
@@ -56,10 +55,10 @@ public class Player extends Entity{
 			});
 		}
 
-		position.setX(Math2.clamp(position.getX(), Game.MAP_X, Game.MAP_WIDTH
+		position.setX(Mathf.clamp(position.getX(), Game.MAP_X, Game.MAP_WIDTH
 				+ Game.IMAGE_WIDTH - (Game.IMAGE_WIDTH + width)
 				+ (Game.WINDOW_HEIGHT - Game.CANVAS_HEIGHT)));
-		position.setY(Math2.clamp(position.getY(), Game.MAP_Y, Game.MAP_HEIGHT
+		position.setY(Mathf.clamp(position.getY(), Game.MAP_Y, Game.MAP_HEIGHT
 				+ Game.IMAGE_HEIGHT - (Game.IMAGE_HEIGHT + height)
 				+ (Game.WINDOW_HEIGHT - Game.CANVAS_HEIGHT)));
 	}

@@ -1,7 +1,7 @@
 package com.spaceshooter.core;
 
-import com.spaceshooter.math.Math2;
-import com.spaceshooter.math.Vector2;
+import com.spaceshooter.math.Mathf;
+import com.spaceshooter.math.Vector;
 
 public class Camera {
 
@@ -18,7 +18,7 @@ public class Camera {
 		
 	}
 	
-	public Vector2 position = new Vector2();
+	public Vector position = new Vector();
 	
 	float scrollSpeed;
 
@@ -27,7 +27,7 @@ public class Camera {
 		this.scrollSpeed = scrollSpeed;
 	}
 	
-	public void update(Vector2 target) {
+	public void update(Vector target) {
 		
 		OFFSET_X = (int) (target.getX() - Camera.X);
 		OFFSET_Y = (int) (target.getY() - Camera.Y);
@@ -35,14 +35,14 @@ public class Camera {
 		position.setX(position.getX() + ((target.getX() - Game.CANVAS_WIDTH / 2) - position.getX()) * scrollSpeed);
 		position.setY(position.getY() + ((target.getY() - Game.CANVAS_HEIGHT / 2) - position.getY()) * scrollSpeed);
 		
-		position.setX(Math2.clamp(position.getX(), Game.MAP_X, Game.MAP_WIDTH - Game.WINDOW_WIDTH));
-		position.setY(Math2.clamp(position.getY(), Game.MAP_Y, ((Game.MAP_HEIGHT - Game.WINDOW_HEIGHT) + (Game.WINDOW_HEIGHT - Game.CANVAS_HEIGHT))));
+		position.setX(Mathf.clamp(position.getX(), Game.MAP_X, Game.MAP_WIDTH - Game.WINDOW_WIDTH));
+		position.setY(Mathf.clamp(position.getY(), Game.MAP_Y, ((Game.MAP_HEIGHT - Game.WINDOW_HEIGHT) + (Game.WINDOW_HEIGHT - Game.CANVAS_HEIGHT))));
 		
 		X = (int) position.getX();
 		Y = (int) position.getY();
 	}
 	
-	public static boolean inViewPort(Vector2 position) {
+	public static boolean inViewPort(Vector position) {
 		if(
 			position.getX() < Camera.OFFSET_X - Game.CANVAS_WIDTH / 2 ||
 			position.getX() > Camera.X + Game.CANVAS_WIDTH ||
