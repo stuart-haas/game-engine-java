@@ -69,6 +69,6 @@ public class Texture {
 	}
 	
 	public BufferedImage getTileById(int id) {
-		return imageArray[id % columns][id / rows];
+		return imageArray[id % columns][(int) Math.floor(id / columns)];
 	}
 }

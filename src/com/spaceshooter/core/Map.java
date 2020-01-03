@@ -38,7 +38,7 @@ public class Map {
 	public Map(){
 		entityManager = EntityManager.getInstance();
 		texture = Texture.getInstance();
-		texture.loadImage("/sprite_sheets/tallgrass.png", nodeSize, nodeSize);
+		texture.loadImage("/sprite_sheets/tallgrass.png", nodeSize, nodeSize, 3, 6);
 	}
 	
 	public void loadMap(String path, int rows, int columns) {
