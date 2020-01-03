@@ -41,7 +41,7 @@ public class Game extends Canvas implements Runnable{
 	Camera camera;
 	EntityManager entityManager;
 	Map map;
-	Profiler profile;
+	Profiler profiler;
 	int fps = 60;
 	long interval = 1000 / fps;
 	long currentTime = 0;
@@ -110,7 +110,7 @@ public class Game extends Canvas implements Runnable{
 		map = Map.getInstance();
 		map.loadMap("/levels/Tilemap.csv", 40, 40);
 		
-		profile = new Profiler(650, 0, ID.Player, entityManager);
+		profiler = new Profiler(650, 0, ID.Player);
 	}
 	
 	private void update() {
@@ -137,7 +137,7 @@ public class Game extends Canvas implements Runnable{
 
 		context.translate(camera.position.getX(), camera.position.getY());
 
-	    profile.render(g);
+		profiler.render(g);
 
 	    context.dispose();
 		bs.show();

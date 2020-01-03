@@ -3,6 +3,7 @@ package com.spaceshooter.utils;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
+import java.util.ArrayList;
 
 import com.spaceshooter.core.Camera;
 import com.spaceshooter.core.Game;
@@ -10,28 +11,36 @@ import com.spaceshooter.entity.Entity;
 import com.spaceshooter.core.EntityManager;
 import com.spaceshooter.input.MouseInput;
 
-public class Profiler{
-
-	public static String IN_SIGHT;
-	public static double TARGET_ANGLE;
-	public static double TARGET_DISTANCE;
+public class Profiler {
 	
-	EntityManager handler;
-	Entity object;
+	ArrayList<Info> info = new ArrayList<Info>();
+	EntityManager entityManager;
+	Entity target;
 	int x, y;
+	
+	class Info {
+		
+		public String label;
+		public int value;
+		
+		private Info(String label, int value) {
+			this.label = label;
+			this.value = value;
+		}
+	}
 
-	public Profiler(int x, int y, ID id, EntityManager handler){
-		this.handler = handler;
+	public Profiler(int x, int y, ID id) {
 		this.x = x;
 		this.y = y;
-		
-		object = handler.getEntityById(id);
+		entityManager = EntityManager.getInstance();
+		target = entityManager.getEntityById(id);
 	}
+	
 	public void render(Graphics g) {
 
-		double px = object.position.getX();
-		double py = object.position.getY();
-		double rotation = Math.round(object.getRotation());
+		double px = target.position.getX();
+		double py = target.position.getY();
+		double rotation = Math.round(target.getRotation());
 		
 		g.setColor(Color.blue);
 		g.fillRect(x, y, 150, 300);
@@ -57,9 +66,12 @@ public class Profiler{
 		g.drawString("Canvas Height: " + Game.CANVAS_HEIGHT, x + 4, y + 224);
 		g.drawString("FPS: " + Game.FPS, x + 4, y + 238);
 		g.drawString("Memory: " + getMemory() + " MB", x + 4, y + 252);
-		g.drawString("Target Angle: " + TARGET_ANGLE, x + 4, y + 266);
-		g.drawString("Target Distance: " + TARGET_DISTANCE, x + 4, y + 280);
-		g.drawString("Rotation: " + rotation, x + 4, y + 294);
+		g.drawString("Rotation: " + rotation, x + 4, y + 268);
+		g.drawString("Visible Entities: " + entityManager.visibleEntities.size(), x + 4, y + 284);
+	}
+	
+	public void addInfo(String label, int value) {
+		info.add(new Info(label, value));
 	}
 	
 	public static double getMemory() {
