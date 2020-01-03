@@ -5,8 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.spaceshooter.entity.Entity;
-import com.spaceshooter.math.Vector;
-import com.spaceshooter.utils.ID;
+import com.spaceshooter.map.Id;
 
 public class EntityManager{
 	
@@ -31,7 +30,7 @@ public class EntityManager{
 		return entity;
 	}
 	
-	public Entity getEntityById(ID id) {
+	public Entity getEntityById(Id id) {
 		
 		for (Entity entity : entities) {
 			if (entity.getId() == id) return entity;
@@ -43,38 +42,15 @@ public class EntityManager{
 		entities.remove(entity);
 	}
 	
-	public List<Entity> getNearbyEntities(ID id, Vector position, double radius) {
-		List<Entity> nearby = new ArrayList<Entity>();
-
-		for (Entity entity : entities){
-			if (entity.getId() == id || entity.getId() == id){
-				if (position.distSq(entity.position) < radius * radius){
-					nearby.add(entity);
-				}
-				else{
-					nearby.remove(entity);
-				}
-			}
-		}
-		return nearby;
-	}
-	
 	public void render(Graphics2D g) {
 		visibleEntities  = new ArrayList<Entity>();
 		for (Entity entity: entities) {
 			if(Camera.inViewPort(entity.position)) {
 				visibleEntities.add(entity);
 				entity.render(g);
+				entity.update();
 			} else {
 				visibleEntities.remove(entity);
-			}
-		}
-	}
-	
-	public void update() {
-		for (Entity entity: entities) {
-			if(Camera.inViewPort(entity.position)) {
-				entity.update();
 			}
 		}
 	}

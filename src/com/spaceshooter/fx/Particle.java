@@ -10,7 +10,7 @@ import com.spaceshooter.entity.Entity;
 import com.spaceshooter.math.Vector;
 
 public class Particle extends Entity {
-
+	
 	double size, maxSize, growth, direction, life, lifeRate;
 	float alpha;
 	Color currentColor;
@@ -20,7 +20,7 @@ public class Particle extends Entity {
 	public Particle(int x, int y, double angle, double speed, double friction,
 			double size, double maxSize, double growth, double life,
 			double lifeRate, float alpha, Color[] colors){
-		super(x, y, 0, 0, null);
+		super(x, y, 0, 0, null, null);
 
 		this.position.set(x, y);
 		this.size = size;

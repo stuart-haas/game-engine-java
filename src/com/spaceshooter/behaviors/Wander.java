@@ -1,13 +1,13 @@
 package com.spaceshooter.behaviors;
 
 import com.spaceshooter.entity.Entity;
+import com.spaceshooter.map.Id;
 import com.spaceshooter.math.Vector;
-import com.spaceshooter.utils.ID;
 
 public class Wander extends ABehavior {
 
 	public Wander(double wanderAngle, double wanderDistance, double wanderRadius, double wanderRange) {
-		super(ID.Wander);
+		super(Id.Wander);
 		this.wanderAngle = wanderAngle;
 		this.wanderDistance = wanderDistance;
 		this.wanderRadius = wanderRadius;

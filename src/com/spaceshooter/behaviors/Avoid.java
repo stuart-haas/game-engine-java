@@ -3,13 +3,13 @@ package com.spaceshooter.behaviors;
 import java.util.List;
 
 import com.spaceshooter.entity.Entity;
+import com.spaceshooter.map.Id;
 import com.spaceshooter.math.Vector;
-import com.spaceshooter.utils.ID;
 
 public class Avoid extends ABehavior {
 
-	public Avoid(List<Entity> group, ID id, double avoidDist, double avoidBuffer) {
-		super(ID.Avoid);
+	public Avoid(List<Entity> group, Id id, double avoidDist, double avoidBuffer) {
+		super(Id.Avoid);
 		this.avoidDist = avoidDist;
 		this.avoidBuffer = avoidBuffer;
 	}

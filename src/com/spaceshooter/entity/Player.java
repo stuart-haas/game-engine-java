@@ -6,11 +6,12 @@ import java.awt.event.KeyEvent;
 import com.spaceshooter.core.Collision;
 import com.spaceshooter.core.Game;
 import com.spaceshooter.input.KeyInput;
+import com.spaceshooter.map.Id;
+import com.spaceshooter.map.Layer;
 import com.spaceshooter.math.Mathf;
 import com.spaceshooter.math.Vector;
 import com.spaceshooter.sprite.Animation;
 import com.spaceshooter.utils.Assets;
-import com.spaceshooter.utils.ID;
 
 public class Player extends Entity{
 
@@ -18,8 +19,8 @@ public class Player extends Entity{
 	KeyInput input;
 	Vector lastPosition = new Vector();
 
-	public Player(int x, int y, int width, int height, ID id) {
-		super(x, y, width, height, id);
+	public Player(int x, int y, int width, int height, Id id, Layer layer) {
+		super(x, y, width, height, id, layer);
 		input = KeyInput.getInstance();
 		texture.loadImage(Assets.SHIP, width, height);
 		animation = new Animation(1, true, texture.imageArray);

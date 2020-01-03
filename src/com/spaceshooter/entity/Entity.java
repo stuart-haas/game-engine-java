@@ -3,96 +3,71 @@ package com.spaceshooter.entity;
 import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
-import java.awt.geom.Ellipse2D;
-import java.text.DecimalFormat;
-import java.util.List;
-import java.util.Random;
 
 import com.spaceshooter.behaviors.ABehavior;
+import com.spaceshooter.map.Id;
+import com.spaceshooter.map.Layer;
 import com.spaceshooter.math.Vector;
 import com.spaceshooter.sprite.Texture;
-import com.spaceshooter.utils.ID;
 
 public abstract class Entity{
-
-	public double rotation;
-	public double angle;
-	protected int width;
-	protected int height;
-	protected ID id;
-	public boolean isMoving = false;
-	public int index;
 	
-	public boolean drawBounds = false;
-
-	protected Random r = new Random();
-	protected DecimalFormat df = new DecimalFormat("#0.00");
-	protected Texture texture = Texture.getInstance();
-
-	public List<Entity> nearbyTargets;
 	public Vector position = new Vector();
 	public Vector velocity = new Vector();
 	public Vector steeringForce = new Vector();
-
-	public int health = 50;
-	public double friction = .98;
 	public double maxSpeed = 5;
-	public double minSpeed = 1;
 	public double maxForce = 1;
 	public double mass = 1;
-	public double projectileSpeed = 0;
-	public int fireRate = 0;
-	public int fireRadius = 0;
-	public int life = 100;
+	public double friction = .98;
 	public boolean expired = false;
-	public double lastRotation;
-	public double tempRotation;
+	public boolean debug = false;
+	
+	protected int width;
+	protected int height;
+	protected Id id;
+	protected Layer layer;
+	protected Texture texture;
+	
+	double rotation;
+	double angle;
 
-	public Entity(int x, int y, int width, int height, ID id){
+	public Entity(int x, int y, int width, int height, Id id, Layer layer){
 		position.set(x, y);
 		this.width = width;
 		this.height = height;
 		this.id = id;
+		this.layer = layer;
+		texture = Texture.getInstance();
 	}
 	
 	public void addBehavior(ABehavior behavior) {}
-	public void removeBehavior(ID id) {}
+	public void removeBehavior(Id id) {}
 	public void update() {}
 	public void render(Graphics2D g) {}
 
-	public Rectangle getRectBounds() {
+	public Rectangle getBounds() {
 		return new Rectangle((int) position.getX(), (int) position.getY(), width, height);
 	}
 	
-	public Ellipse2D getEllipseBounds() {
-		return new Ellipse2D.Double(position.getX(), position.getY(), width, height);
+	public void debug(Graphics2D g) {
+		g.setColor(Color.cyan);
+		g.drawRect(getBounds().x, getBounds().y, getBounds().width, getBounds().height);
 	}
 	
-	public void drawBounds(Graphics2D g) {
-		g.setColor(Color.cyan);
-		g.drawRect(getRectBounds().x, getRectBounds().y, getRectBounds().width, getRectBounds().height);
-	}
-	
-	public void drawStats(Graphics2D g) {
-		g.setColor(Color.cyan);
-		g.drawString("[x: " + position.getX() + " , y: "
-				+ df.format(position.getY()) + "]", (int) position.getX(), (int) position.getY() - 5);
-		g.drawString("[vx: " + df.format(velocity.getX()) + " , vy: "
-				+ df.format(velocity.getY()) + "]", (int) position.getX(), (int) position.getY() - 20);
-		g.drawString("[ax: " + df.format(steeringForce.getX()) + " , ay: "
-				+ df.format(steeringForce.getY()) + "]", (int) position.getX(), (int) position.getY() - 35);
-		g.drawString("[angle: "
-				+ df.format(Math.toDegrees(velocity.getAngle())) + "]", (int) position.getX(), (int) position.getY() - 50);
+	public void setId(Id id) {
+		this.id = id;
 	}
 
-	public ID getId() {
-
+	public Id getId() {
 		return id;
 	}
 	
-	public void setId(ID id) {
-
-		this.id = id;
+	public void setLayer(Layer layer) {
+		this.layer = layer;
+	}
+	
+	public Layer getLayer() {
+		return layer;
 	}
 
 	public int getWidth() {
@@ -104,10 +79,10 @@ public abstract class Entity{
 	}
 	
 	public double getRotation(){
-		return this.rotation;
+		return rotation;
 	}
 	
 	public double getAngle(){
-		return this.angle;
+		return angle;
 	}
 }

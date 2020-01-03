@@ -1,13 +1,13 @@
 package com.spaceshooter.behaviors;
 
 import com.spaceshooter.entity.Entity;
+import com.spaceshooter.map.Id;
 import com.spaceshooter.math.Vector;
-import com.spaceshooter.utils.ID;
 
 public class Seek extends ABehavior {
 
 	public Seek(Entity target, double seekThreshold) {
-		super(target, ID.Seek);
+		super(target, Id.Seek);
 		this.seekThreshold = seekThreshold;
 	}
 	

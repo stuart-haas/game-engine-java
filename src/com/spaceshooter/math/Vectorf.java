@@ -1,8 +1,8 @@
 package com.spaceshooter.math;
 
-import com.spaceshooter.core.Map;
 import com.spaceshooter.entity.Entity;
-import com.spaceshooter.utils.ID;
+import com.spaceshooter.map.Layer;
+import com.spaceshooter.map.Map;
 
 public class Vectorf{
 	
@@ -99,8 +99,8 @@ public class Vectorf{
 			double py = target.getY() + diff.ny() * -length;
 			
 			Entity node = map.nodeFromWorldPoint(new Vector(px, py));
-			if(node != null && node.getId() == ID.WallTile) {
-				node.drawBounds = true;
+			if(node != null && node.getLayer() == Layer.Collidable) {
+				node.debug = true;
 				return false;
 			}
 		}

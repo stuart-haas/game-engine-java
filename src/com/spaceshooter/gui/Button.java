@@ -7,15 +7,15 @@ import java.awt.event.MouseEvent;
 
 import com.spaceshooter.core.EntityManager;
 import com.spaceshooter.input.MouseInput;
-import com.spaceshooter.utils.ID;
+import com.spaceshooter.map.Id;
 
 public class Button extends MouseInput{
 
 	String text;
 	int x, y, width, height, fontSize;
-	ID id;
+	Id id;
 
-	public Button(String text, int fontSize, int x, int y, int width, int height, ID id, EntityManager handler) {
+	public Button(String text, int fontSize, int x, int y, int width, int height, Id id, EntityManager handler) {
 		super();
 		this.text = text;
 		this.x = x;

@@ -10,6 +10,7 @@ import com.spaceshooter.core.Game;
 import com.spaceshooter.entity.Entity;
 import com.spaceshooter.core.EntityManager;
 import com.spaceshooter.input.MouseInput;
+import com.spaceshooter.map.Id;
 
 public class Profiler {
 	
@@ -29,7 +30,7 @@ public class Profiler {
 		}
 	}
 
-	public Profiler(int x, int y, ID id) {
+	public Profiler(int x, int y, Id id) {
 		this.x = x;
 		this.y = y;
 		entityManager = EntityManager.getInstance();

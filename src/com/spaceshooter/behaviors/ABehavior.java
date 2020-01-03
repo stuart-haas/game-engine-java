@@ -3,12 +3,12 @@ package com.spaceshooter.behaviors;
 import java.util.ArrayList;
 
 import com.spaceshooter.entity.Entity;
+import com.spaceshooter.map.Id;
 import com.spaceshooter.math.Vector;
-import com.spaceshooter.utils.ID;
 
 public abstract class ABehavior {
 		
-	protected ID id;
+	protected Id id;
 	public Entity target;
 	protected ArrayList<Vector> paths;
 	protected boolean loop;
@@ -25,16 +25,16 @@ public abstract class ABehavior {
 	protected double avoidBuffer;
 	protected double avoidDist;
 
-	public ABehavior(Entity target, ID id) {
+	public ABehavior(Entity target, Id id) {
 		this.target = target;
 		this.id = id;
 	}
 	
-	public ABehavior(ID id) {
+	public ABehavior(Id id) {
 		this.id = id;
 	}
 	
-	public ID getId() {
+	public Id getId() {
 		return id;
 	}
 	

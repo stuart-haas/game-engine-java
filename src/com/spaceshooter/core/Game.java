@@ -8,7 +8,9 @@ import java.awt.image.BufferStrategy;
 
 import com.spaceshooter.input.KeyInput;
 import com.spaceshooter.input.MouseInput;
-import com.spaceshooter.utils.ID;
+import com.spaceshooter.map.Id;
+import com.spaceshooter.map.Layer;
+import com.spaceshooter.map.Map;
 import com.spaceshooter.utils.Profiler;
 
 public class Game extends Canvas implements Runnable{
@@ -105,17 +107,16 @@ public class Game extends Canvas implements Runnable{
 		entityManager = EntityManager.getInstance();
 		camera = Camera.getInstance(0, 0, 0.05f);
 		
-		entityManager.addEntity(EntityFactory.getPlayer(0, 0, 32, 32, ID.Player));
+		entityManager.addEntity(EntityFactory.playerInstance(256, 256, 32, 32, Id.Player, Layer.Controllable));
 
 		map = Map.getInstance();
 		map.loadMap("/levels/Tilemap.csv", 40, 40);
 		
-		profiler = new Profiler(650, 0, ID.Player);
+		profiler = new Profiler(650, 0, Id.Player);
 	}
 	
 	private void update() {
-		entityManager.update();
-		camera.update(entityManager.getEntityById(ID.Player).position);
+		camera.update(entityManager.getEntityById(Id.Player).position);
 	}
 	
 	private void render() {

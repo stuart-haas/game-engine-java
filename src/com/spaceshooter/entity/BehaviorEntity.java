@@ -4,37 +4,38 @@ import java.util.HashMap;
 import java.util.Map;
 
 import com.spaceshooter.behaviors.ABehavior;
-import com.spaceshooter.utils.ID;
+import com.spaceshooter.map.Id;
+import com.spaceshooter.map.Layer;
 
 public abstract class BehaviorEntity extends Entity{
 
-	private Map<ID, ABehavior> behaviors = new HashMap<ID, ABehavior>();
+	private Map<Id, ABehavior> behaviors = new HashMap<Id, ABehavior>();
 	boolean lineOfSight = false;
 	Entity target;
 	
-	public BehaviorEntity(int x, int y, int width, int height, ID id) {
-		super(x, y, width, height, id);
+	public BehaviorEntity(int x, int y, int width, int height, Id id, Layer layer) {
+		super(x, y, width, height, id, layer);
 	}
 	
 	public void addBehavior(ABehavior behavior) {
 		behaviors.put(behavior.getId(), behavior);
 	}
 	
-	public ABehavior getBehavior(ID id) {
+	public ABehavior getBehavior(Id id) {
 		return behaviors.get(id);
 	}
 	
-	public void removeBehavior(ID id) {
+	public void removeBehavior(Id id) {
 		behaviors.remove(id);
 	}
 	
-	public Map<ID, ABehavior> getBehaviorList() {
+	public Map<Id, ABehavior> getBehaviorList() {
 		return behaviors;
 	}
 	
 	public void update() {
 
-		for (Map.Entry<ID, ABehavior> entry : behaviors.entrySet()) {
+		for (Map.Entry<Id, ABehavior> entry : behaviors.entrySet()) {
 			ABehavior behavior = entry.getValue();
 			steeringForce = steeringForce.add(behavior.calculate(this)).divide(behaviors.size());
 			steeringForce.truncate(maxForce);

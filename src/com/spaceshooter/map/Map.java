@@ -1,15 +1,16 @@
-package com.spaceshooter.core;
+package com.spaceshooter.map;
 
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 
+import com.spaceshooter.core.EntityManager;
+import com.spaceshooter.core.Game;
 import com.spaceshooter.entity.Entity;
 import com.spaceshooter.entity.Node;
 import com.spaceshooter.math.Vector;
 import com.spaceshooter.sprite.Texture;
-import com.spaceshooter.utils.ID;
 
 public class Map {
 	
@@ -73,7 +74,7 @@ public class Map {
 		for(int x = 0; x < map.length; x ++){
 			for(int y = 0; y < map[x].length; y ++){
 				if(map[y][x] != -1)
-					nodes[y][x] = entityManager.addEntity(new Node(x * nodeSize, y * nodeSize, nodeSize, nodeSize, ID.Tile, texture.getTileById(map[y][x])));
+					nodes[y][x] = entityManager.addEntity(new Node(texture.getTileById(map[y][x]), x * nodeSize, y * nodeSize, nodeSize, nodeSize, Id.CollisionNode, Layer.Collidable));
 			}
 		}
 	}

@@ -1,13 +1,13 @@
 package com.spaceshooter.behaviors;
 
 import com.spaceshooter.entity.Entity;
+import com.spaceshooter.map.Id;
 import com.spaceshooter.math.Vector;
-import com.spaceshooter.utils.ID;
 
 public class Flee extends ABehavior{
 
 	public Flee(Entity target, double fleeThreshold){
-		super(target, ID.Flee);
+		super(target, Id.Flee);
 		this.fleeThreshold = fleeThreshold;
 	}
 

@@ -4,10 +4,11 @@ import java.awt.Graphics2D;
 
 import com.spaceshooter.core.Collision;
 import com.spaceshooter.core.EntityManager;
+import com.spaceshooter.map.Id;
+import com.spaceshooter.map.Layer;
 import com.spaceshooter.math.Vector;
 import com.spaceshooter.sprite.Animation;
 import com.spaceshooter.utils.Assets;
-import com.spaceshooter.utils.ID;
 
 public class Seeker extends BehaviorEntity {
 	
@@ -15,8 +16,8 @@ public class Seeker extends BehaviorEntity {
 	EntityManager handler;
 	Vector lastPosition = new Vector();
 
-	public Seeker(int x, int y, int width, int height, ID id){
-		super(x, y, width, height, id);
+	public Seeker(int x, int y, int width, int height, Id id, Layer layer){
+		super(x, y, width, height, id, layer);
 
 		handler = EntityManager.getInstance();
 		texture.loadImage(Assets.SEEKER, width, height);

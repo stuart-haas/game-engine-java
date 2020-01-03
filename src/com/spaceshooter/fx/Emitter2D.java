@@ -7,15 +7,15 @@ import java.util.List;
 import java.util.ListIterator;
 
 import com.spaceshooter.entity.Entity;
-import com.spaceshooter.utils.ID;
+import com.spaceshooter.map.Id;
 
 public class Emitter2D{
 
 	List<Entity> particles = new ArrayList<Entity>();
 	
-	private ID id;
+	private Id id;
 
-	public Emitter2D(ID id){
+	public Emitter2D(Id id){
 		this.id = id;
 	}
 	public void create(int amount, int x, int y, double angle, double speed,
@@ -28,7 +28,7 @@ public class Emitter2D{
 			particles.add(particle);
 		}
 	}
-	public void tick() {
+	public void update() {
 
 		ListIterator<Entity> particleIterator = particles.listIterator();
 		while (particleIterator.hasNext()){
@@ -45,10 +45,10 @@ public class Emitter2D{
 			p.render(g);
 		}
 	}
-	public ID getId() {
+	public Id getId() {
 		return id;
 	}
-	public void setId(ID id) {
+	public void setId(Id id) {
 		this.id = id;
 	}
 }

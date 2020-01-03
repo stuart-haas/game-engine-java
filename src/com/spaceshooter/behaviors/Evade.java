@@ -1,13 +1,13 @@
 package com.spaceshooter.behaviors;
 
 import com.spaceshooter.entity.Entity;
+import com.spaceshooter.map.Id;
 import com.spaceshooter.math.Vector;
-import com.spaceshooter.utils.ID;
 
 public class Evade extends ABehavior{
 
 	public Evade(Entity target, double evadeSpeed, double fleeThreshold) {
-		super(target, ID.Evade);
+		super(target, Id.Evade);
 		this.evadeSpeed = evadeSpeed;
 		this.fleeThreshold = fleeThreshold;
 	}

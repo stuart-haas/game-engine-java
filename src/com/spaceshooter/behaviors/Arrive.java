@@ -1,13 +1,13 @@
 package com.spaceshooter.behaviors;
 
 import com.spaceshooter.entity.Entity;
+import com.spaceshooter.map.Id;
 import com.spaceshooter.math.Vector;
-import com.spaceshooter.utils.ID;
 
 public class Arrive extends ABehavior {
 
 	public Arrive(Entity target, double arriveThreshold) {
-		super(target, ID.Arrive);
+		super(target, Id.Arrive);
 		this.arriveThreshold = arriveThreshold;
 	}
 	

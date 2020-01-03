@@ -3,8 +3,9 @@ package com.spaceshooter.core;
 import java.util.ArrayList;
 
 import com.spaceshooter.entity.Entity;
+import com.spaceshooter.map.Layer;
+import com.spaceshooter.map.Map;
 import com.spaceshooter.math.Vector;
-import com.spaceshooter.utils.ID;
 
 public class Collision {
 	
@@ -17,9 +18,9 @@ public class Collision {
 	public static void detect(Entity source, int distance, boolean debug, EventCallback callback) {
 		ArrayList<Entity> neighbors = map.getNeighborsByPoint(source.position, distance);
 		for (Entity entity : neighbors) {
-			if(entity != null && entity.getId() == ID.WallTile) {
+			if(entity != null && entity.getLayer() == Layer.Collidable) {
 				if(debug) {
-					entity.drawBounds = true;
+					entity.debug = true;
 				}
 				callback.success(source, entity);
 			}
