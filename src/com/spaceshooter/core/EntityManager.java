@@ -25,24 +25,9 @@ public class EntityManager{
 
 	public EntityManager() {}
 	
-	public void addEntity(List<Entity> list, Entity object) {
-		list.add(object);
-	}
-	
-	public List<Entity> getNearbyEntities(ID id, Vector2 position, double radius) {
-		List<Entity> list = new ArrayList<Entity>();
-
-		for (Entity entity : entities){
-			if (entity.getId() == id || entity.getId() == id){
-				if (position.distSq(entity.position) < radius * radius){
-					list.add(entity);
-				}
-				else{
-					list.remove(entity);
-				}
-			}
-		}
-		return list;
+	public Entity addEntity(Entity entity) {
+		entities.add(entity);
+		return entity;
 	}
 	
 	public Entity getEntityById(ID id) {
@@ -55,6 +40,22 @@ public class EntityManager{
 	
 	public void removeEntity(Entity entity) {
 		entities.remove(entity);
+	}
+	
+	public List<Entity> getNearbyEntities(ID id, Vector2 position, double radius) {
+		List<Entity> nearby = new ArrayList<Entity>();
+
+		for (Entity entity : entities){
+			if (entity.getId() == id || entity.getId() == id){
+				if (position.distSq(entity.position) < radius * radius){
+					nearby.add(entity);
+				}
+				else{
+					nearby.remove(entity);
+				}
+			}
+		}
+		return nearby;
 	}
 	
 	public void render(Graphics2D g) {

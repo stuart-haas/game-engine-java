@@ -3,6 +3,7 @@ package com.spaceshooter.entity;
 import java.awt.Graphics2D;
 import java.awt.event.KeyEvent;
 
+import com.spaceshooter.core.Collision;
 import com.spaceshooter.core.Game;
 import com.spaceshooter.input.KeyInput;
 import com.spaceshooter.math.Math2;
@@ -15,7 +16,7 @@ public class Player extends Entity{
 
 	Animation animation;
 	KeyInput input;
-	Vector2 oldPosition;
+	Vector2 lastPosition = new Vector2();
 
 	public Player(int x, int y, int width, int height, ID id) {
 		super(x, y, width, height, id);
@@ -27,15 +28,15 @@ public class Player extends Entity{
 	
 	public void update() {
 		
-		oldPosition = position;
+		lastPosition = position.clone();
 		
-	    if (input.isKeyPressed(KeyEvent.VK_D)) this.steeringForce.setX(maxForce);
-	    else if (input.isKeyPressed(KeyEvent.VK_A)) this.steeringForce.setX(-maxForce);
-	    else this.steeringForce.setX(0);
-	    
-	    if (input.isKeyPressed(KeyEvent.VK_S)) this.steeringForce.setY(maxForce);
-	    else if (input.isKeyPressed(KeyEvent.VK_W)) this.steeringForce.setY(-maxForce);
-		else this.steeringForce.setY(0);
+		steeringForce.setX(0);
+		steeringForce.setY(0);
+		
+	    if (input.isKeyPressed(KeyEvent.VK_D)) steeringForce.setX(maxForce);
+	    if (input.isKeyPressed(KeyEvent.VK_A)) steeringForce.setX(-maxForce);
+	    if (input.isKeyPressed(KeyEvent.VK_S)) steeringForce.setY(maxForce);
+	    if (input.isKeyPressed(KeyEvent.VK_W)) steeringForce.setY(-maxForce);
 	    
 		velocity = velocity.multiply(friction);
 		velocity = velocity.add(steeringForce);
@@ -44,6 +45,16 @@ public class Player extends Entity{
 		
 		if(velocity.getDistSq() > 2)
 			rotation = Math.toDegrees(velocity.getAngle());
+		
+		if(lastPosition.getX() != position.getX() || lastPosition.getY() != position.getY()) {
+			Collision.detect(this, 0, true, new Collision.EventCallback() {
+
+				@Override
+				public void success(Entity source, Entity target) {
+					Collision.resolve(source, target);
+				}
+			});
+		}
 
 		position.setX(Math2.clamp(position.getX(), Game.MAP_X, Game.MAP_WIDTH
 				+ Game.IMAGE_WIDTH - (Game.IMAGE_WIDTH + width)

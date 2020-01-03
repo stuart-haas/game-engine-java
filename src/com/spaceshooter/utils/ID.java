@@ -2,11 +2,42 @@ package com.spaceshooter.utils;
 
 public enum ID {
 
-	Anomaly(), Arrive(), Avoid(), Blackhole(), BounceTile(), Brownian(),
-	Bullet(), BulletTrail(), Button1(), Button2(), Button3(), Coin(),
-	CollisionTile(), Cursor(), Drone(), Enemy(), Evade(), Explosion(), Flee(),
-	FollowPath(), HiddenWallTile(), InteriorTile(), Missile(), MissileTrail(),
-	Particle(), Pickup(), Player(), Powerup(), Projectile(), Pursue(),
-	Rocket(), Seek(), Seeker(), SmartFlee(), SmartSeek(), ThrustTrail(),
-	Tile(), Turret(), WallTile(), Wander(), Light(), Empty(), BackgroundTile();
+	Arrive(), 
+	Avoid(), 
+	Bullet(),
+	Coin(3), 
+	CollisionTile(),
+	Cursor(), 
+	Evade(), 
+	Explosion(), 
+	Flee(), 
+	FollowPath(),
+	Missile(), 
+	MissileTrail(),
+	Particle(),
+	Pickup(), 
+	Player(0), 
+	Powerup(), 
+	Projectile(), 
+	Pursue(), 
+	Seek(),
+	Seeker(5), 
+	ThrustTrail(), 
+	Tile(),
+	Turret(),
+	WallTile(1), 
+	Wander(), 
+	Empty();
+	
+	int value;
+	
+	public int value() {
+		return value;
+	}
+	 
+    private ID(int value) {
+        this.value = value;
+    }
+    
+    private ID() {}
 }

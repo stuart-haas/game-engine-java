@@ -19,10 +19,8 @@ public class MiniMap{
 	int colWidth, colHeight;
 	int pixel, red, green, blue = 0;
 
-	public MiniMap(int x, int y, int colWidth, int colHeight, Map map,
-			EntityManager handler){
+	public MiniMap(int x, int y, int colWidth, int colHeight, Map map, EntityManager handler){
 		this.map = map;
-		this.level = map.getLevel();
 		this.handler = handler;
 		this.x = x;
 		this.y = y;
@@ -41,12 +39,9 @@ public class MiniMap{
 		g.fillRect(x, y, width + 4, height + 4);
 
 		drawTile(g, handler.entities, ID.Player, Color.blue);
-		drawTile(g, handler.entities, ID.Enemy, Color.red);
 		drawTile(g, handler.entities, ID.Pickup, Color.yellow);
-		drawTile(g, handler.entities, ID.InteriorTile, Color.white);
 		drawTile(g, handler.entities, ID.CollisionTile, Color.gray);
 		drawTile(g, handler.entities, ID.Missile, Color.cyan);
-		drawTile(g, handler.entities, ID.Blackhole, Color.pink);
 		drawTile(g, handler.entities, ID.Bullet, Color.cyan);
 	}
 	

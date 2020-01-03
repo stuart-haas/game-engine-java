@@ -22,6 +22,9 @@ public abstract class Entity{
 	protected int height;
 	protected ID id;
 	public boolean isMoving = false;
+	public int index;
+	
+	public boolean drawBounds = false;
 
 	protected Random r = new Random();
 	protected DecimalFormat df = new DecimalFormat("#0.00");
