@@ -5,6 +5,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map;
 
 import com.spaceshooter.core.EntityManager;
 import com.spaceshooter.core.Game;
@@ -13,17 +14,17 @@ import com.spaceshooter.entity.Node;
 import com.spaceshooter.math.Vector;
 import com.spaceshooter.sprite.Texture;
 
-public class Map {
+public class Grid {
 	
 	public static int rows = 40;
 	public static int columns = 40;
 	public static int nodeSize = 32;
 	
-	static Map instance;
+	static Grid instance;
 	
-	public static Map getInstance() {
+	public static Grid getInstance() {
 		if(instance == null) {
-			instance = new Map();
+			instance = new Grid();
 			return instance;
 		}
 		return instance;
@@ -35,10 +36,10 @@ public class Map {
 	String[] tokens = null;
 	EntityManager entityManager;
 	Texture texture;
-	int[][] map;
-	HashMap<Layer, Entity[][]> layers;
+	int[][] grid;
+	Map<Layer, Entity[][]> layers;
 	
-	public Map(){
+	public Grid(){
 		Game.MAP_X = 0;
 		Game.MAP_Y = 0;
 		Game.IMAGE_WIDTH = rows;
@@ -53,14 +54,14 @@ public class Map {
 	
 	public void load(String path) {
 		try {
-			map = new int[rows][columns];
-			InputStream is = Map.class.getResourceAsStream(path);
+			grid = new int[rows][columns];
+			InputStream is = Grid.class.getResourceAsStream(path);
 			br = new BufferedReader(new InputStreamReader(is));
 			int y = 0; 
 			while((line = br.readLine()) != null){
 				tokens = line.split(splitBy);
 				for(int x = 0; x < tokens.length; x ++){
-					map[y][x] = Integer.parseInt(tokens[x]);
+					grid[y][x] = Integer.parseInt(tokens[x]);
 				}
 				y ++;
 			}	
@@ -71,10 +72,10 @@ public class Map {
 	
 	public void addNodes(int[][] map, String texturePath, Id id, Layer layer) {
 		Entity[][] nodes = new Entity[rows][columns];
+		texture.loadImage(texturePath, nodeSize, nodeSize);
 		for(int x = 0; x < map.length; x ++){
 			for(int y = 0; y < map[x].length; y ++){
 				if(map[y][x] != -1) {
-					texture.loadImage(texturePath, nodeSize, nodeSize);
 					nodes[y][x] = entityManager.addEntity(new Node(texture.getTileById(map[y][x]), x * nodeSize, y * nodeSize, nodeSize, nodeSize, id, layer));
 					layers.put(layer, nodes);
 
@@ -115,8 +116,12 @@ public class Map {
 		return layers.get(layer)[y][x];
 	}
 	
-	public int[][] getMap() {
-		return map;
+	public int[][] getGrid() {
+		return grid;
+	}
+	
+	public Map<Layer, Entity[][]> getLayers() {
+		return layers;
 	}
 	
 	public Entity[][] getNodes(Layer layer) {

@@ -10,7 +10,7 @@ import com.spaceshooter.input.KeyInput;
 import com.spaceshooter.input.MouseInput;
 import com.spaceshooter.map.Id;
 import com.spaceshooter.map.Layer;
-import com.spaceshooter.map.Map;
+import com.spaceshooter.map.Grid;
 import com.spaceshooter.utils.Profiler;
 
 public class Game extends Canvas implements Runnable{
@@ -42,7 +42,7 @@ public class Game extends Canvas implements Runnable{
 	Graphics g;
 	Camera camera;
 	EntityManager entityManager;
-	Map map;
+	Grid grid;
 	Profiler profiler;
 	int fps = 60;
 	long interval = 1000 / fps;
@@ -107,13 +107,14 @@ public class Game extends Canvas implements Runnable{
 		entityManager = EntityManager.getInstance();
 		camera = Camera.getInstance(0, 0, 0.05f);
 	
-
-		map = Map.getInstance();
-		map.load("/levels/Tilemap_Walkable Layer.csv");
-		map.addNodes(map.getMap(), "/sprite_sheets/tallgrass.png", Id.WalkableNode, Layer.Walkable);
+		grid = Grid.getInstance();
 		
-		map.load("/levels/Tilemap_Collision Layer.csv");
-		map.addNodes(map.getMap(), "/sprite_sheets/fence.png", Id.CollidableNode, Layer.Collidable);
+		
+		grid.load("/levels/Tilemap_Walkable Layer.csv");
+		grid.addNodes(grid.getGrid(), "/sprite_sheets/tallgrass.png", Id.WalkableNode, Layer.Walkable);
+		
+		grid.load("/levels/Tilemap_Collision Layer.csv");
+		grid.addNodes(grid.getGrid(), "/sprite_sheets/fence.png", Id.CollidableNode, Layer.Collidable);
 		
 		entityManager.addEntity(EntityFactory.playerInstance(256, 256, 32, 32, Id.Player, Layer.Controllable));
 		
@@ -138,7 +139,7 @@ public class Game extends Canvas implements Runnable{
 		context.fillRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
 
 		context.translate(-camera.position.getX(), -camera.position.getY());
-
+		
 		entityManager.render(context);
 
 		context.translate(camera.position.getX(), camera.position.getY());

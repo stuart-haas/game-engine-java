@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ef42d7b4-2da3-4de1-b5fc-90a2d5e138e3" name="Default Changelist" comment="">
+    <list default="true" id="51e90f04-d436-434f-9dc4-6244634ee8c4" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/com/spaceshooter/behaviors/ABehavior.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/com/spaceshooter/behaviors/ABehavior.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/com/spaceshooter/behaviors/Arrive.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/com/spaceshooter/behaviors/Arrive.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/com/spaceshooter/behaviors/Avoid.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/com/spaceshooter/behaviors/Avoid.class" afterDir="false" />
@@ -10,50 +12,47 @@
       <change beforePath="$PROJECT_DIR$/bin/com/spaceshooter/behaviors/FollowPath.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/com/spaceshooter/behaviors/FollowPath.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/com/spaceshooter/behaviors/Pursue.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/com/spaceshooter/behaviors/Pursue.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/com/spaceshooter/behaviors/Seek.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/com/spaceshooter/behaviors/Seek.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/com/spaceshooter/behaviors/SmartFlee.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/com/spaceshooter/behaviors/SmartFlee.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/com/spaceshooter/behaviors/SmartSeek.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/com/spaceshooter/behaviors/SmartSeek.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/com/spaceshooter/behaviors/Wander.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/com/spaceshooter/behaviors/Wander.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/com/spaceshooter/core/Camera.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/com/spaceshooter/core/Camera.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/com/spaceshooter/core/Collision$EventCallback.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/com/spaceshooter/core/Collision$EventCallback.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/com/spaceshooter/core/Collision.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/com/spaceshooter/core/Collision.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/com/spaceshooter/core/EntityFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/com/spaceshooter/core/EntityFactory.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/com/spaceshooter/core/EntityManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/com/spaceshooter/core/EntityManager.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/com/spaceshooter/core/Game$STATE.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/com/spaceshooter/core/Game$STATE.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/com/spaceshooter/core/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/com/spaceshooter/core/Game.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/com/spaceshooter/core/Handler.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/com/spaceshooter/core/Handler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/com/spaceshooter/core/Map.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/com/spaceshooter/core/Map.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/com/spaceshooter/core/MiniMap.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/com/spaceshooter/core/MiniMap.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/com/spaceshooter/core/ObjectFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/com/spaceshooter/core/ObjectFactory.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/com/spaceshooter/core/Window.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/com/spaceshooter/core/Window.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/com/spaceshooter/entity/BehaviorEntity.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/com/spaceshooter/entity/BehaviorEntity.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/com/spaceshooter/entity/Entity.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/com/spaceshooter/entity/Entity.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/com/spaceshooter/entity/Node.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/com/spaceshooter/entity/Node.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/com/spaceshooter/entity/Player$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/com/spaceshooter/entity/Player$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/com/spaceshooter/entity/Player.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/com/spaceshooter/entity/Player.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/com/spaceshooter/entity/Seeker$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/com/spaceshooter/entity/Seeker$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/com/spaceshooter/entity/Seeker.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/com/spaceshooter/entity/Seeker.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/com/spaceshooter/fx/Emitter2D.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/com/spaceshooter/fx/Emitter2D.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/com/spaceshooter/fx/Particle.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/com/spaceshooter/fx/Particle.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/com/spaceshooter/gui/Button.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/com/spaceshooter/gui/Button.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/com/spaceshooter/gui/Marker.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/com/spaceshooter/gui/Marker.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/com/spaceshooter/input/KeyInput.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/com/spaceshooter/input/KeyInput.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/com/spaceshooter/input/MouseInput.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/com/spaceshooter/input/MouseInput.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/com/spaceshooter/math/LineOfSight.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/com/spaceshooter/math/LineOfSight.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/com/spaceshooter/math/Vector2D.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/com/spaceshooter/math/Vector2D.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/com/spaceshooter/math/VectorMath.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/com/spaceshooter/math/VectorMath.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/com/spaceshooter/objects/Blackhole.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/com/spaceshooter/objects/Blackhole.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/com/spaceshooter/objects/Bullet.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/com/spaceshooter/objects/Bullet.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/com/spaceshooter/objects/GameObject.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/com/spaceshooter/objects/GameObject.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/com/spaceshooter/objects/Missile.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/com/spaceshooter/objects/Missile.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/com/spaceshooter/objects/MovingObject.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/com/spaceshooter/objects/MovingObject.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/com/spaceshooter/objects/Pickup.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/com/spaceshooter/objects/Pickup.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/com/spaceshooter/objects/Player.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/com/spaceshooter/objects/Player.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/com/spaceshooter/objects/Rocket.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/com/spaceshooter/objects/Rocket.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/com/spaceshooter/objects/Seeker.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/com/spaceshooter/objects/Seeker.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/com/spaceshooter/objects/Turret.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/com/spaceshooter/objects/Turret.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/com/spaceshooter/objects/tiles/RoundTile.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/com/spaceshooter/objects/tiles/RoundTile.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/com/spaceshooter/objects/tiles/Tile.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/com/spaceshooter/objects/tiles/Tile.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/com/spaceshooter/objects/tiles/WallTile.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/com/spaceshooter/objects/tiles/WallTile.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/com/spaceshooter/map/Id.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/com/spaceshooter/map/Id.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/com/spaceshooter/map/Layer.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/com/spaceshooter/map/Layer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/com/spaceshooter/map/Map.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/com/spaceshooter/math/Mathf.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/com/spaceshooter/math/Mathf.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/com/spaceshooter/math/Vector.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/com/spaceshooter/math/Vector.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/com/spaceshooter/math/Vectorf.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/com/spaceshooter/math/Vectorf.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/com/spaceshooter/sprite/Animation.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/com/spaceshooter/sprite/Animation.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/com/spaceshooter/sprite/ImageLoader.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/com/spaceshooter/sprite/ImageLoader.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/com/spaceshooter/sprite/SpriteSheet.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/com/spaceshooter/sprite/SpriteSheet.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/com/spaceshooter/sprite/Texture.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/com/spaceshooter/sprite/Texture.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/com/spaceshooter/utils/Assets.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/com/spaceshooter/utils/Assets.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/com/spaceshooter/utils/Colors.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/com/spaceshooter/utils/Colors.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/com/spaceshooter/utils/ID.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/com/spaceshooter/utils/ID.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/com/spaceshooter/utils/Profiler$Info.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/com/spaceshooter/utils/Profiler$Info.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/com/spaceshooter/utils/Profiler.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/com/spaceshooter/utils/Profiler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/spaceshooter/core/Collision.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/spaceshooter/core/Collision.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/spaceshooter/core/EntityManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/spaceshooter/core/EntityManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/spaceshooter/core/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/spaceshooter/core/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/spaceshooter/input/KeyInput.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/spaceshooter/input/KeyInput.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/spaceshooter/map/Map.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/spaceshooter/math/Vectorf.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/spaceshooter/math/Vectorf.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/spaceshooter/utils/Profiler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/spaceshooter/utils/Profiler.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/bin/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -66,52 +65,40 @@
     <session id="-480490480">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="2" />
-          <entry key="project.open.time.12" value="1" />
-          <entry key="project.open.time.2" value="1" />
-          <entry key="project.opened" value="2" />
+          <entry key="project.open.time.10" value="1" />
+          <entry key="project.opened" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="java" value="15" />
-          <entry key="png" value="2" />
+          <entry key="gitignore" value="1" />
+          <entry key="java" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="Image" value="2" />
-          <entry key="JAVA" value="15" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.extensions.edit">
-        <counts>
-          <entry key="java" value="24" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.types.edit">
-        <counts>
-          <entry key="JAVA" value="24" />
+          <entry key="JAVA" value="1" />
+          <entry key="PLAIN_TEXT" value="1" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+    <leaf>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/spaceshooter/core/Game.java">
+        <entry file="file://$PROJECT_DIR$/src/com/spaceshooter/core/Window.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-290">
-              <caret line="126" column="25" lean-forward="true" selection-start-line="126" selection-start-column="25" selection-end-line="126" selection-end-column="25" />
+            <state relative-caret-position="360">
+              <caret line="27" lean-forward="true" selection-start-line="27" selection-end-line="27" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/com/spaceshooter/input/KeyInput.java">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="448">
-              <caret line="78" column="14" selection-start-line="78" selection-start-column="14" selection-end-line="78" selection-end-column="14" />
+            <state relative-caret-position="105">
+              <caret line="7" column="5" lean-forward="true" selection-start-line="7" selection-start-column="5" selection-end-line="7" selection-end-column="5" />
             </state>
           </provider>
         </entry>
@@ -124,16 +111,8 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/com/spaceshooter/core/Game.java" />
-        <option value="$PROJECT_DIR$/src/com/spaceshooter/input/KeyInput.java" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
-    </option>
-  </component>
-  <component name="MavenImportPreferences">
-    <option name="generalSettings">
-      <MavenGeneralSettings>
-        <option name="mavenHome" value="Bundled (Maven 3)" />
-      </MavenGeneralSettings>
     </option>
   </component>
   <component name="ProjectFrameBounds">
@@ -148,24 +127,12 @@
     </navigator>
     <panes>
       <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
               <item name="Space Shooter" type="b2602c69:ProjectViewProjectNode" />
               <item name="Space Shooter" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Space Shooter" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Space Shooter" type="462c0819:PsiDirectoryNode" />
-              <item name="res" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Space Shooter" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Space Shooter" type="462c0819:PsiDirectoryNode" />
-              <item name="res" type="462c0819:PsiDirectoryNode" />
-              <item name="levels" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Space Shooter" type="b2602c69:ProjectViewProjectNode" />
@@ -185,21 +152,15 @@
               <item name="spaceshooter" type="462c0819:PsiDirectoryNode" />
               <item name="core" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="Space Shooter" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Space Shooter" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="spaceshooter" type="462c0819:PsiDirectoryNode" />
-              <item name="utils" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1564624167189" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1578149598961" />
     <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.javacompiler" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
   </component>
@@ -222,22 +183,20 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Game" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+    <configuration name="Run" type="Application" factoryName="Application">
+      <option name="ALTERNATIVE_JRE_PATH" value="1.8" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="com.spaceshooter.core.Game" />
       <module name="Space Shooter" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.spaceshooter.core.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH" value="1.8" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="MAIN_CLASS_NAME" value="com.spaceshooter.core.Game" />
+      <module name="Space Shooter" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -265,22 +224,17 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Application.Game" />
-      </list>
-    </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="ef42d7b4-2da3-4de1-b5fc-90a2d5e138e3" name="Default Changelist" comment="" />
-      <created>1541541834284</created>
+      <changelist id="51e90f04-d436-434f-9dc4-6244634ee8c4" name="Default Changelist" comment="" />
+      <created>1578149182561</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1541541834284</updated>
+      <updated>1578149182561</updated>
     </task>
     <servers />
   </component>
@@ -288,13 +242,16 @@
     <frame x="2" y="22" width="1256" height="737" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25370675" />
+      <window_info id="Image Layers" />
+      <window_info id="Designer" />
+      <window_info id="UI Designer" />
+      <window_info id="Capture Tool" />
+      <window_info id="Favorites" side_tool="true" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24958813" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="Image Layers" order="2" />
-      <window_info id="Designer" order="3" />
-      <window_info id="UI Designer" order="4" />
-      <window_info id="Capture Tool" order="5" />
-      <window_info id="Favorites" order="6" side_tool="true" />
+      <window_info anchor="bottom" id="Version Control" />
+      <window_info anchor="bottom" id="Terminal" />
+      <window_info anchor="bottom" id="Event Log" side_tool="true" />
       <window_info anchor="bottom" id="Messages" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
@@ -303,110 +260,31 @@
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Terminal" order="7" />
-      <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
-      <window_info anchor="bottom" id="Version Control" order="9" />
+      <window_info anchor="right" id="Palette" />
+      <window_info anchor="right" id="Theme Preview" />
+      <window_info anchor="right" id="Capture Analysis" />
+      <window_info anchor="right" id="Palette&#9;" />
+      <window_info anchor="right" id="Maven Projects" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Palette" order="3" />
-      <window_info anchor="right" id="Capture Analysis" order="4" />
-      <window_info anchor="right" id="Theme Preview" order="5" />
-      <window_info anchor="right" id="Palette&#9;" order="6" />
-      <window_info anchor="right" id="Maven Projects" order="7" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/com/spaceshooter/behaviors/Arrive.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-337">
-          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/spaceshooter/behaviors/ABehavior.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2">
-          <caret line="9" column="22" selection-start-line="9" selection-start-column="22" selection-end-line="9" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/spaceshooter/fx/Emitter2D.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/spaceshooter/fx/Particle.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-402">
-          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/spaceshooter/core/Map.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1002">
-          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/spaceshooter/core/ObjectFactory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-242">
-          <caret line="26" column="13" selection-start-line="26" selection-start-column="13" selection-end-line="26" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/spaceshooter/core/MiniMap.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-377">
-          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/spaceshooter/core/Window.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+        <state relative-caret-position="360">
+          <caret line="27" lean-forward="true" selection-start-line="27" selection-end-line="27" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/spaceshooter/behaviors/FollowPath.java">
+    <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-77">
-          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/levels/level2.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/spaceshooter/utils/Assets.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="24">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/levels/level1.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/spaceshooter/core/Game.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-290">
-          <caret line="126" column="25" lean-forward="true" selection-start-line="126" selection-start-column="25" selection-end-line="126" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/spaceshooter/input/KeyInput.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="448">
-          <caret line="78" column="14" selection-start-line="78" selection-start-column="14" selection-end-line="78" selection-end-column="14" />
+        <state relative-caret-position="105">
+          <caret line="7" column="5" lean-forward="true" selection-start-line="7" selection-start-column="5" selection-end-line="7" selection-end-column="5" />
         </state>
       </provider>
     </entry>

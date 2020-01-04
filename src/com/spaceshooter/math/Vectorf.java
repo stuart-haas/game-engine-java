@@ -2,14 +2,14 @@ package com.spaceshooter.math;
 
 import com.spaceshooter.entity.Entity;
 import com.spaceshooter.map.Layer;
-import com.spaceshooter.map.Map;
+import com.spaceshooter.map.Grid;
 
 public class Vectorf{
 	
 	public static double DEG_TO_RAD = Math.PI / 180;
 	public static double RAD_TO_DEG = 180 / Math.PI;
 	
-	static Map map = Map.getInstance();
+	static Grid map = Grid.getInstance();
 	
 	public static Vector project(Vector v1, Vector v2) {
 		

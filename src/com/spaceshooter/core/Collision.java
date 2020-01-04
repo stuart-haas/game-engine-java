@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 import com.spaceshooter.entity.Entity;
 import com.spaceshooter.map.Layer;
-import com.spaceshooter.map.Map;
+import com.spaceshooter.map.Grid;
 import com.spaceshooter.math.Vector;
 
 public class Collision {
@@ -13,7 +13,7 @@ public class Collision {
 		void success(Entity source, Entity target);
 	}
 	
-	static Map map = Map.getInstance();
+	static Grid map = Grid.getInstance();
 	
 	public static void detect(Layer layer, Entity source, int distance, boolean debug, EventCallback callback) {
 		ArrayList<Entity> neighbors = map.getNeighborsByPoint(layer, source.position, distance);

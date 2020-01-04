@@ -68,7 +68,6 @@ public class Profiler {
 		g.drawString("FPS: " + Game.FPS, x + 4, y + 238);
 		g.drawString("Memory: " + getMemory() + " MB", x + 4, y + 252);
 		g.drawString("Rotation: " + rotation, x + 4, y + 268);
-		g.drawString("Visible Entities: " + entityManager.visibleEntities.size(), x + 4, y + 284);
 	}
 	
 	public void addInfo(String label, int value) {

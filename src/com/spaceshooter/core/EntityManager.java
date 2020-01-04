@@ -21,9 +21,10 @@ public class EntityManager{
 	}
 
 	public List<Entity> entities = new ArrayList<Entity>();
-	public List<Entity> visibleEntities;
 
-	public EntityManager() {}
+	public EntityManager() {
+	
+	}
 	
 	public Entity addEntity(Entity entity) {
 		entities.add(entity);
@@ -43,14 +44,10 @@ public class EntityManager{
 	}
 	
 	public void render(Graphics2D g) {
-		visibleEntities  = new ArrayList<Entity>();
 		for (Entity entity: entities) {
 			if(Camera.inViewPort(entity.position)) {
-				visibleEntities.add(entity);
 				entity.render(g);
 				entity.update();
-			} else {
-				visibleEntities.remove(entity);
 			}
 		}
 	}
