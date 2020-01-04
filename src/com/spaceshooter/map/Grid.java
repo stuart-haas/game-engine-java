@@ -40,12 +40,12 @@ public class Grid {
 	Map<Layer, Entity[][]> layers;
 	
 	public Grid(){
-		Game.MAP_X = 0;
-		Game.MAP_Y = 0;
+		Game.GRID_X = 0;
+		Game.GRID_Y = 0;
 		Game.IMAGE_WIDTH = rows;
 		Game.IMAGE_HEIGHT = columns;
-		Game.MAP_WIDTH = Game.IMAGE_WIDTH * nodeSize;
-		Game.MAP_HEIGHT = Game.IMAGE_HEIGHT * nodeSize;
+		Game.GRID_WIDTH = Game.IMAGE_WIDTH * nodeSize;
+		Game.GRID_HEIGHT = Game.IMAGE_HEIGHT * nodeSize;
 		
 		entityManager = EntityManager.getInstance();
 		texture = Texture.getInstance();

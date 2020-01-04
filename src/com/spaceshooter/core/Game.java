@@ -18,20 +18,11 @@ public class Game extends Canvas implements Runnable{
 	public static String GAME_TITLE = "Space Shooter";
 	public static int CANVAS_WIDTH, CANVAS_HEIGHT;
 	public static int IMAGE_WIDTH, IMAGE_HEIGHT;
-	public static int MAP_WIDTH, MAP_HEIGHT;
-	public static int MAP_X, MAP_Y;
-	public static boolean DISPLAY_COLLISION_OBJECT_BOUNDS = false;
-	public static boolean DISPLAY_OBJECT_BOUNDS = false;
-	public static boolean DISPLAY_STATS = false;
+	public static int GRID_WIDTH, GRID_HEIGHT;
+	public static int GRID_X, GRID_Y;
 	public static int FPS = 0;
 	public static int WINDOW_WIDTH = 800, WINDOW_HEIGHT = WINDOW_WIDTH / 12 * 9;
 	private static final long serialVersionUID = 1L;
-
-	public STATE state = STATE.Running;
-
-	public enum STATE {
-		Paused(), Running();
-	}
 	
 	public static void main(String[] args) {
 		new Window(WINDOW_WIDTH, WINDOW_HEIGHT, GAME_TITLE, new Game());

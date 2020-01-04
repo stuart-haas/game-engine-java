@@ -35,8 +35,8 @@ public class Camera {
 		position.setX(position.getX() + ((target.getX() - Game.CANVAS_WIDTH / 2) - position.getX()) * scrollSpeed);
 		position.setY(position.getY() + ((target.getY() - Game.CANVAS_HEIGHT / 2) - position.getY()) * scrollSpeed);
 		
-		position.setX(Mathf.clamp(position.getX(), Game.MAP_X, Game.MAP_WIDTH - Game.WINDOW_WIDTH));
-		position.setY(Mathf.clamp(position.getY(), Game.MAP_Y, ((Game.MAP_HEIGHT - Game.WINDOW_HEIGHT) + (Game.WINDOW_HEIGHT - Game.CANVAS_HEIGHT))));
+		position.setX(Mathf.clamp(position.getX(), Game.GRID_X, Game.GRID_WIDTH - Game.WINDOW_WIDTH));
+		position.setY(Mathf.clamp(position.getY(), Game.GRID_Y, ((Game.GRID_HEIGHT - Game.WINDOW_HEIGHT) + (Game.WINDOW_HEIGHT - Game.CANVAS_HEIGHT))));
 		
 		X = (int) position.getX();
 		Y = (int) position.getY();

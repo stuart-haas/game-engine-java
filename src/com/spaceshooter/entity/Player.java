@@ -56,10 +56,10 @@ public class Player extends Entity{
 			});
 		}
 
-		position.setX(Mathf.clamp(position.getX(), Game.MAP_X, Game.MAP_WIDTH
+		position.setX(Mathf.clamp(position.getX(), Game.GRID_X, Game.GRID_WIDTH
 				+ Game.IMAGE_WIDTH - (Game.IMAGE_WIDTH + width)
 				+ (Game.WINDOW_HEIGHT - Game.CANVAS_HEIGHT)));
-		position.setY(Mathf.clamp(position.getY(), Game.MAP_Y, Game.MAP_HEIGHT
+		position.setY(Mathf.clamp(position.getY(), Game.GRID_Y, Game.GRID_HEIGHT
 				+ Game.IMAGE_HEIGHT - (Game.IMAGE_HEIGHT + height)
 				+ (Game.WINDOW_HEIGHT - Game.CANVAS_HEIGHT)));
 	}

@@ -59,8 +59,8 @@ public class Profiler {
 		g.drawString("Mouse Y: " + MouseInput.MOUSE_Y, x + 4, y + 112);
 		g.drawString("Image Width: " + Game.IMAGE_WIDTH, x + 4, y + 126);
 		g.drawString("Image Height: " + Game.IMAGE_HEIGHT, x + 4, y + 140);
-		g.drawString("Map Width: " + Game.MAP_WIDTH, x + 4, y + 154);
-		g.drawString("Map Height: " + Game.MAP_HEIGHT, x + 4, y + 168);
+		g.drawString("Grid Width: " + Game.GRID_WIDTH, x + 4, y + 154);
+		g.drawString("Grid Height: " + Game.GRID_HEIGHT, x + 4, y + 168);
 		g.drawString("Window Width: " + Game.WINDOW_WIDTH, x + 4, y + 182);
 		g.drawString("Window Height: " + Game.WINDOW_HEIGHT, x + 4, y + 196);
 		g.drawString("Canvas Width: " + Game.CANVAS_WIDTH, x + 4, y + 210);
