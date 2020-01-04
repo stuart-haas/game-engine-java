@@ -106,11 +106,15 @@ public class Game extends Canvas implements Runnable{
 
 		entityManager = EntityManager.getInstance();
 		camera = Camera.getInstance(0, 0, 0.05f);
-		
-		entityManager.addEntity(EntityFactory.playerInstance(256, 256, 32, 32, Id.Player, Layer.Controllable));
+	
 
 		map = Map.getInstance();
-		map.loadMap("/levels/Tilemap.csv", 40, 40);
+		map.load("/levels/Tilemap_Walkable Layer.csv");
+		map.addNodes(map.getMap(), "/sprite_sheets/tallgrass.png", Id.WalkableNode, Layer.Walkable);
+		map.load("/levels/Tilemap_Collision Layer.csv");
+		map.addNodes(map.getMap(), "/sprite_sheets/fence.png", Id.CollisionNode, Layer.Collidable);
+		
+		entityManager.addEntity(EntityFactory.playerInstance(256, 256, 32, 32, Id.Player, Layer.Controllable));
 		
 		profiler = new Profiler(650, 0, Id.Player);
 	}

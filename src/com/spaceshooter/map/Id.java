@@ -14,6 +14,7 @@ public enum Id {
 	Seek(),
 	Seeker(5),  
 	Tile(),
+	WalkableNode(),
 	Wander();
 	
 	int value;

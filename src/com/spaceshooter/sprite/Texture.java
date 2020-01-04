@@ -4,14 +4,8 @@ import java.awt.image.BufferedImage;
 
 public class Texture {
 	
-	static Texture instance;
-	
 	public static Texture getInstance() {
-		if(instance == null) {
-			instance = new Texture();
-			return instance;
-		}
-		return instance;
+		return new Texture();
 	}
 
 	BufferedImage image;

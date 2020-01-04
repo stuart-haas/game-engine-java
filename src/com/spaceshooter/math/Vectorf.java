@@ -87,7 +87,7 @@ public class Vectorf{
 		return new Vector(vx, vy);
 	}
 	
-	public static boolean lineOfSight(Vector source, Vector target, int steps, Vector offset) {
+	public static boolean lineOfSight(Layer layer, Vector source, Vector target, int steps, Vector offset) {
 		Vector v1 = new Vector(source.getX() + offset.getX(), source.getY() + offset.getY());
 		Vector v2 = new Vector(target.getX() + offset.getX(), target.getY() + offset.getY());
 		Vector diff = v2.subtract(v1);
@@ -98,8 +98,8 @@ public class Vectorf{
 			double px = target.getX() + diff.nx() * -length;
 			double py = target.getY() + diff.ny() * -length;
 			
-			Entity node = map.nodeFromWorldPoint(new Vector(px, py));
-			if(node != null && node.getLayer() == Layer.Collidable) {
+			Entity node = map.nodeFromWorldPoint(new Vector(px, py), layer);
+			if(node != null) {
 				node.debug = true;
 				return false;
 			}

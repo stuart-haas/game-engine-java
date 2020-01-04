@@ -31,7 +31,7 @@ public class Seeker extends BehaviorEntity {
 		super.update();
 		
 		if(lastPosition.getX() != position.getX() || lastPosition.getY() != position.getY()) {
-			Collision.detect(this, 0, true, new Collision.EventCallback() {
+			Collision.detect(Layer.Collidable, this, 0, true, new Collision.EventCallback() {
 
 				@Override
 				public void success(Entity source, Entity target) {

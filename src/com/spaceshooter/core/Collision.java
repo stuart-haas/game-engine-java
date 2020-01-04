@@ -15,10 +15,10 @@ public class Collision {
 	
 	static Map map = Map.getInstance();
 	
-	public static void detect(Entity source, int distance, boolean debug, EventCallback callback) {
-		ArrayList<Entity> neighbors = map.getNeighborsByPoint(source.position, distance);
+	public static void detect(Layer layer, Entity source, int distance, boolean debug, EventCallback callback) {
+		ArrayList<Entity> neighbors = map.getNeighborsByPoint(layer, source.position, distance);
 		for (Entity entity : neighbors) {
-			if(entity != null && entity.getLayer() == Layer.Collidable) {
+			if(entity != null) {
 				if(debug) {
 					entity.debug = true;
 				}

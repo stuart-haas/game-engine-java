@@ -4,7 +4,8 @@ package com.spaceshooter.map;
 public enum Layer {
 	
 	Collidable(),
-	Controllable();
+	Controllable(),
+	Walkable();
 
 	int value;
 	
