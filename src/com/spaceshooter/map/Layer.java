@@ -3,9 +3,10 @@ package com.spaceshooter.map;
 
 public enum Layer {
 	
-	Collidable(),
-	Controllable(),
-	Walkable();
+	Collision(),
+	Player(),
+	Enemy(),
+	Path();
 
 	int value;
 	

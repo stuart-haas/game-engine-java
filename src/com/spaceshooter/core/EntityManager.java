@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.spaceshooter.entity.Entity;
+import com.spaceshooter.entity.Node;
+import com.spaceshooter.map.Grid;
 import com.spaceshooter.map.Id;
 
 public class EntityManager{
@@ -22,9 +24,9 @@ public class EntityManager{
 
 	public List<Entity> entities = new ArrayList<Entity>();
 
-	public EntityManager() {
-	
-	}
+	static Grid grid = Grid.getInstance();
+
+	private EntityManager() {}
 	
 	public Entity addEntity(Entity entity) {
 		entities.add(entity);
@@ -48,6 +50,13 @@ public class EntityManager{
 			if(Camera.inViewPort(entity.position)) {
 				entity.render(g);
 				entity.update();
+                if(grid.path != null) {
+                    if(grid.path.contains(entity)) {
+                        entity.debug = true;
+                    } else {
+                        entity.debug = false;
+                    }
+                }
 			}
 		}
 	}

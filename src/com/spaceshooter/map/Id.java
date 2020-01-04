@@ -4,17 +4,15 @@ public enum Id {
 
 	Arrive(), 
 	Avoid(), 
-	CollidableNode(1),
+	CollisionNode(1),
 	Evade(), 
 	Flee(), 
 	FollowPath(),
-	Particle(),
 	Player(0), 
 	Pursue(), 
 	Seek(),
-	Seeker(5),  
-	Tile(),
-	WalkableNode(),
+	Seeker(5),
+	PathNode(),
 	Wander();
 	
 	int value;

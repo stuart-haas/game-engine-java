@@ -2,12 +2,13 @@ package com.spaceshooter.entity;
 
 import java.awt.Graphics2D;
 
-import com.spaceshooter.core.Collision;
+import com.spaceshooter.physics.Collision;
 import com.spaceshooter.core.EntityManager;
 import com.spaceshooter.map.Id;
 import com.spaceshooter.map.Layer;
 import com.spaceshooter.math.Vector;
 import com.spaceshooter.sprite.Animation;
+import com.spaceshooter.sprite.Texture;
 import com.spaceshooter.utils.Assets;
 
 public class Seeker extends BehaviorEntity {
@@ -18,10 +19,9 @@ public class Seeker extends BehaviorEntity {
 
 	public Seeker(int x, int y, int width, int height, Id id, Layer layer){
 		super(x, y, width, height, id, layer);
-
 		handler = EntityManager.getInstance();
-		texture.loadImage(Assets.SEEKER, width, height);
-		animation = new Animation(5, true, texture.getImageArray());
+		texture = new Texture(Assets.SEEKER, width, height);
+		animation = new Animation(5, true, texture.getSpriteArray());
 	}
 	
 	public void update() {
@@ -31,7 +31,7 @@ public class Seeker extends BehaviorEntity {
 		super.update();
 		
 		if(lastPosition.getX() != position.getX() || lastPosition.getY() != position.getY()) {
-			Collision.detect(Layer.Collidable, this, 0, true, new Collision.EventCallback() {
+			Collision.detect(Layer.Collision, this, 0, true, new Collision.EventCallback() {
 
 				@Override
 				public void success(Entity source, Entity target) {

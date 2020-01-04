@@ -1,6 +1,6 @@
 package com.spaceshooter.math;
 
-public class Mathf{
+public class Mathf {
 
 	public static double clamp(double value, double min, double max) {
 		if (value >= max) return value = max;
@@ -8,7 +8,7 @@ public class Mathf{
 		else return value;
 	}
 	
-	public static double fix(double value, int places){
+	public static double fix(double value, int places) {
 		int temp = (int)(value * Math.pow(10 , places));  
 		return ((double)temp)/Math.pow(10 , places); 
 	}

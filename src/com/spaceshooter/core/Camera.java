@@ -22,7 +22,7 @@ public class Camera {
 	
 	float scrollSpeed;
 
-	public Camera(float x, float y, float scrollSpeed) {
+	private Camera(float x, float y, float scrollSpeed) {
 		position.set(x, y);
 		this.scrollSpeed = scrollSpeed;
 	}

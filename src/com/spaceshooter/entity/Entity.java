@@ -37,7 +37,6 @@ public abstract class Entity{
 		this.height = height;
 		this.id = id;
 		this.layer = layer;
-		texture = Texture.getInstance();
 	}
 	
 	public void addBehavior(ABehavior behavior) {}

@@ -103,12 +103,14 @@ public class Game extends Canvas implements Runnable{
 		
 		
 		grid.load("/levels/Tilemap_Walkable Layer.csv");
-		grid.addNodes(grid.getGrid(), "/sprite_sheets/tallgrass.png", Id.WalkableNode, Layer.Walkable);
+		grid.addNodes(grid.getGrid(), "/sprite_sheets/tallgrass.png", Id.PathNode, Layer.Path);
 		
 		grid.load("/levels/Tilemap_Collision Layer.csv");
-		grid.addNodes(grid.getGrid(), "/sprite_sheets/fence.png", Id.CollidableNode, Layer.Collidable);
+		grid.addNodes(grid.getGrid(), "/sprite_sheets/fence.png", Id.CollisionNode, Layer.Collision);
 		
-		entityManager.addEntity(EntityFactory.playerInstance(256, 256, 32, 32, Id.Player, Layer.Controllable));
+		entityManager.addEntity(EntityFactory.playerInstance(256, 256, 32, 32, Id.Player, Layer.Player));
+
+        entityManager.addEntity(EntityFactory.seekerInstance(512, 512, 32, 32, Id.Seeker, Layer.Enemy));
 		
 		profiler = new Profiler(650, 0, Id.Player);
 	}
@@ -131,7 +133,7 @@ public class Game extends Canvas implements Runnable{
 		context.fillRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
 
 		context.translate(-camera.position.getX(), -camera.position.getY());
-		
+
 		entityManager.render(context);
 
 		context.translate(camera.position.getX(), camera.position.getY());

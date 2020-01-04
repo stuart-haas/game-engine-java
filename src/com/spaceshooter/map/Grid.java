@@ -5,6 +5,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import com.spaceshooter.core.EntityManager;
@@ -29,6 +30,8 @@ public class Grid {
 		}
 		return instance;
 	}
+
+	public List<Node> path;
 	
 	BufferedReader br = null;
 	String line =  "";
@@ -37,9 +40,9 @@ public class Grid {
 	EntityManager entityManager;
 	Texture texture;
 	int[][] grid;
-	Map<Layer, Entity[][]> layers;
+	Map<Layer, Node[][]> layers;
 	
-	public Grid(){
+	private Grid(){
 		Game.GRID_X = 0;
 		Game.GRID_Y = 0;
 		Game.IMAGE_WIDTH = rows;
@@ -48,8 +51,7 @@ public class Grid {
 		Game.GRID_HEIGHT = Game.IMAGE_HEIGHT * nodeSize;
 		
 		entityManager = EntityManager.getInstance();
-		texture = Texture.getInstance();
-		layers = new HashMap<Layer, Entity[][]>();
+		layers = new HashMap<>();
 	}
 	
 	public void load(String path) {
@@ -71,21 +73,38 @@ public class Grid {
 	}
 	
 	public void addNodes(int[][] map, String texturePath, Id id, Layer layer) {
-		Entity[][] nodes = new Entity[rows][columns];
-		texture.loadImage(texturePath, nodeSize, nodeSize);
+		Node[][] nodes = new Node[rows][columns];
+		texture = new Texture(texturePath, nodeSize, nodeSize);
 		for(int x = 0; x < map.length; x ++){
 			for(int y = 0; y < map[x].length; y ++){
 				if(map[y][x] != -1) {
-					nodes[y][x] = entityManager.addEntity(new Node(texture.getSpriteById(map[y][x]), x * nodeSize, y * nodeSize, nodeSize, nodeSize, id, layer));
+					nodes[y][x] = (Node) entityManager.addEntity(new Node(texture.getSpriteById(map[y][x]), x, y, x * nodeSize, y * nodeSize, nodeSize, nodeSize, id, layer));
 					layers.put(layer, nodes);
 
 				}
 			}
 		}
 	}
+
+	public ArrayList<Node> getNeighborsByNode(Layer layer, Node node) {
+		ArrayList<Node> neighbors = new ArrayList<Node>();
+        for(int x = -1; x <= 1; x ++) {
+            for(int y = -1; y <= 1; y ++) {
+                if(x == 0 && y == 0) {
+                    continue;
+                }
+
+                int cx = node.gridX + x;
+                int cy = node.gridY + y;
+
+                neighbors.add(nodeFromIndex(cx, cy, layer));
+            }
+        }
+		return neighbors;
+	}
 	
-	public ArrayList<Entity> getNeighborsByPoint(Layer layer, Vector source, int distance) {
-		ArrayList<Entity> neighbors = new ArrayList<Entity>();
+	public ArrayList<Node> getNeighborsByPoint(Layer layer, Vector source, int distance) {
+		ArrayList<Node> neighbors = new ArrayList<Node>();
 		int left = (int) source.getX() / nodeSize - distance;
 		int right = (int) (source.getX() + nodeSize) / nodeSize + distance;
 		int top = (int) source.getY() / nodeSize - distance;
@@ -98,20 +117,20 @@ public class Grid {
 		
 		for(int i = left; i <= right; i ++) {
 			for(int j = top; j <= bottom; j ++) {
-				Entity node = nodeFromIndex(i, j, layer);
+                Node node = nodeFromIndex(i, j, layer);
 				neighbors.add(node);
 			}
 		}
 		return neighbors;
 	}
 	
-	public Entity nodeFromWorldPoint(Vector point, Layer layer) {
+	public Node nodeFromWorldPoint(Vector point, Layer layer) {
 		int x = (int) point.getX() / nodeSize;
 		int y = (int) point.getY() / nodeSize;
 		return nodeFromIndex(x, y, layer);
 	}
 	
-	public Entity nodeFromIndex(int x, int y, Layer layer) {
+	public Node nodeFromIndex(int x, int y, Layer layer) {
 		if (x < 0 && x > Game.IMAGE_WIDTH && y < 0 && y > Game.IMAGE_HEIGHT) return null;
 		return layers.get(layer)[y][x];
 	}
@@ -120,7 +139,7 @@ public class Grid {
 		return grid;
 	}
 	
-	public Map<Layer, Entity[][]> getLayers() {
+	public Map<Layer, Node[][]> getLayers() {
 		return layers;
 	}
 	
