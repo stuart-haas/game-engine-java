@@ -8,40 +8,17 @@ public class Texture {
 		return new Texture();
 	}
 
+	SpriteSheet spriteSheet;
+	BufferedImage[][] imageArray;
 	BufferedImage image;
-	int width;
-	int height;
 	int columns;
 	int rows;
-	int length;
-	
-	public SpriteSheet spriteSheet;
-	public BufferedImage[][] imageArray;
 
 	public Texture() {}
 	
-	public void loadImage(String path, int width, int height, int columns, int rows) {
-		
-		this.width = width;
-		this.height = height;
-		this.columns = columns;
-		this.rows = rows;
-		
-		ImageLoader loader = new ImageLoader();
-		image = loader.loadImage(path);
-
-		imageArray = new BufferedImage[columns][rows];	
-		spriteSheet = new SpriteSheet(image);
-
-		getTextures(width, height);
-	}
-	
 	public void loadImage(String path, int width, int height) {
 		
-		this.width = width;
-		this.height = height;
-		
-		ImageLoader loader = new ImageLoader();
+		ImageLoader loader = ImageLoader.getInstance();
 		image = loader.loadImage(path);
 
 		columns = image.getWidth() / width;
@@ -57,12 +34,20 @@ public class Texture {
 		
 		for(int x = 0; x < imageArray.length; x ++) {
 			for(int y = 0; y < imageArray[x].length; y ++) {
-				imageArray[x][y] = spriteSheet.getTile(x + 1, y + 1, width, height);
+				imageArray[x][y] = spriteSheet.getSprite(x + 1, y + 1, width, height);
 			}
 		}
 	}
 	
-	public BufferedImage getTileById(int id) {
-		return imageArray[id % columns][(int) Math.floor(id / columns)];
+	public BufferedImage getSpriteById(int id) {
+		return imageArray[id % columns][(int) Math.floor((float) id / columns)];
 	}
+
+    public SpriteSheet getSpriteSheet() {
+        return spriteSheet;
+    }
+
+    public BufferedImage[][] getImageArray() {
+        return imageArray;
+    }
 }

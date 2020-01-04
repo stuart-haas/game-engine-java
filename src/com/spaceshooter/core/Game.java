@@ -14,8 +14,7 @@ import com.spaceshooter.map.Grid;
 import com.spaceshooter.utils.Profiler;
 
 public class Game extends Canvas implements Runnable{
-	
-	public static String GAME_TITLE = "Space Shooter";
+
 	public static int CANVAS_WIDTH, CANVAS_HEIGHT;
 	public static int IMAGE_WIDTH, IMAGE_HEIGHT;
 	public static int GRID_WIDTH, GRID_HEIGHT;
@@ -23,6 +22,8 @@ public class Game extends Canvas implements Runnable{
 	public static int FPS = 0;
 	public static int WINDOW_WIDTH = 800, WINDOW_HEIGHT = WINDOW_WIDTH / 12 * 9;
 	private static final long serialVersionUID = 1L;
+
+	private static String GAME_TITLE = "Space Shooter";
 	
 	public static void main(String[] args) {
 		new Window(WINDOW_WIDTH, WINDOW_HEIGHT, GAME_TITLE, new Game());

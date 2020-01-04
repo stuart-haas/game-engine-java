@@ -4,20 +4,17 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 
-public class Animation{
-
-	int speed;
-	int frames;
-
-	int index = 0;
-	int count = 0;
-
-	boolean loop;
+public class Animation {
 
 	BufferedImage[][] images;
 	BufferedImage currentImage;
+	int speed;
+	int frames;
+	int index = 0;
+	int count = 0;
+	boolean loop;
 
-	public Animation(int speed, boolean loop, BufferedImage[][] args){
+	public Animation(int speed, boolean loop, BufferedImage[][] args) {
 		this.speed = speed;
 		this.loop = loop;
 		images = new BufferedImage[args.length][0];
@@ -25,9 +22,9 @@ public class Animation{
 			images[i] = args[i];
 		}
 		frames = args.length;
-		
 		currentImage = images[0][0];
 	}
+
 	public void runAnimation() {
 		index++;
 		if (index > speed){
@@ -35,22 +32,26 @@ public class Animation{
 			nextFrame();
 		}
 	}
+
 	public void drawAnimation(Graphics g, int x, int y) {
 		g.drawImage(currentImage, x, y, null);
 	}
+
 	public void drawAnimation(Graphics g, int x, int y, int scaleX, int scaleY) {
 		g.drawImage(currentImage, x, y, scaleX, scaleY, null);
 	}
-	public void rotateAnimation(Graphics g, double rotation, int x, int y, int width,
-			int height) {
+
+	public void rotateAnimation(Graphics g, double rotation, int x, int y, int width, int height) {
 		Graphics2D g2d = (Graphics2D) g.create();
-		g2d.rotate(Math.toRadians((int)rotation), x + currentImage.getWidth() / 2, y + currentImage.getHeight() / 2);
+		g2d.rotate(Math.toRadians((int)rotation), x + currentImage.getWidth() * 0.5, y + currentImage.getHeight() * 0.5);
 		g2d.drawImage(currentImage, x, y, null);
 		g2d.dispose();
 	}
+
 	public void goToFrame(int index) {
 		currentImage = images[index][0];
 	}
+
 	private void nextFrame() {
 
 		for (int i = 0; i < frames; i++){

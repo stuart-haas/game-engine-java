@@ -76,7 +76,7 @@ public class Grid {
 		for(int x = 0; x < map.length; x ++){
 			for(int y = 0; y < map[x].length; y ++){
 				if(map[y][x] != -1) {
-					nodes[y][x] = entityManager.addEntity(new Node(texture.getTileById(map[y][x]), x * nodeSize, y * nodeSize, nodeSize, nodeSize, id, layer));
+					nodes[y][x] = entityManager.addEntity(new Node(texture.getSpriteById(map[y][x]), x * nodeSize, y * nodeSize, nodeSize, nodeSize, id, layer));
 					layers.put(layer, nodes);
 
 				}

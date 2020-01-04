@@ -23,7 +23,7 @@ public class Player extends Entity{
 		super(x, y, width, height, id, layer);
 		input = KeyInput.getInstance();
 		texture.loadImage(Assets.SHIP, width, height);
-		animation = new Animation(1, true, texture.imageArray);
+		animation = new Animation(1, true, texture.getImageArray());
 		animation.goToFrame(0);
 	}
 	

@@ -21,7 +21,7 @@ public class Seeker extends BehaviorEntity {
 
 		handler = EntityManager.getInstance();
 		texture.loadImage(Assets.SEEKER, width, height);
-		animation = new Animation(5, true, texture.imageArray);
+		animation = new Animation(5, true, texture.getImageArray());
 	}
 	
 	public void update() {
