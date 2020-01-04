@@ -35,7 +35,6 @@ public class Map {
 	String[] tokens = null;
 	EntityManager entityManager;
 	Texture texture;
-	Texture walkableTexture;
 	int[][] map;
 	HashMap<Layer, Entity[][]> layers;
 	
@@ -53,10 +52,8 @@ public class Map {
 	}
 	
 	public void load(String path) {
-		
-		map = new int[rows][columns];
-		
 		try {
+			map = new int[rows][columns];
 			InputStream is = Map.class.getResourceAsStream(path);
 			br = new BufferedReader(new InputStreamReader(is));
 			int y = 0; 
@@ -74,7 +71,6 @@ public class Map {
 	
 	public void addNodes(int[][] map, String texturePath, Id id, Layer layer) {
 		Entity[][] nodes = new Entity[rows][columns];
-		
 		for(int x = 0; x < map.length; x ++){
 			for(int y = 0; y < map[x].length; y ++){
 				if(map[y][x] != -1) {
@@ -121,5 +117,9 @@ public class Map {
 	
 	public int[][] getMap() {
 		return map;
+	}
+	
+	public Entity[][] getNodes(Layer layer) {
+		return layers.get(layer);
 	}
 }
