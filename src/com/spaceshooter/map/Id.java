@@ -4,7 +4,7 @@ public enum Id {
 
 	Arrive(), 
 	Avoid(), 
-	CollisionNode(1),
+	CollidableNode(1),
 	Evade(), 
 	Flee(), 
 	FollowPath(),

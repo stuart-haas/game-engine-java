@@ -111,8 +111,9 @@ public class Game extends Canvas implements Runnable{
 		map = Map.getInstance();
 		map.load("/levels/Tilemap_Walkable Layer.csv");
 		map.addNodes(map.getMap(), "/sprite_sheets/tallgrass.png", Id.WalkableNode, Layer.Walkable);
+		
 		map.load("/levels/Tilemap_Collision Layer.csv");
-		map.addNodes(map.getMap(), "/sprite_sheets/fence.png", Id.CollisionNode, Layer.Collidable);
+		map.addNodes(map.getMap(), "/sprite_sheets/fence.png", Id.CollidableNode, Layer.Collidable);
 		
 		entityManager.addEntity(EntityFactory.playerInstance(256, 256, 32, 32, Id.Player, Layer.Controllable));
 		
